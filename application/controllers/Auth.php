@@ -38,13 +38,9 @@ class Auth extends CI_Controller
 
 		if ($result->num_rows() > 0) {
 			$data		= $result->row_array();
-			$id			= $data['id_pegawai'];
+			$id			= $data['id'];
 			$nip		= $data['nip'];
 			$nama		= $data['nama'];
-			$jabatan	= $data['id_jabatan'];
-			$jk			= $data['jenis_kelamin'];
-			$alamat		= $data['alamat'];
-			$telp		= $data['no_hp'];
 			$username	= $data['username'];
 			$img		= $data['img'];
 			$role		= $data['role'];
@@ -52,10 +48,6 @@ class Auth extends CI_Controller
 				'id'		=> $id,
 				'nip'		=> $nip,
 				'nama'		=> $nama,
-				'jabatan'	=> $jabatan,
-				'jk'		=> $jk,
-				'alamat'	=> $alamat,
-				'telp'		=> $telp,
 				'username'	=> $username,
 				'img'		=> $img,
 				'role'		=> $role,

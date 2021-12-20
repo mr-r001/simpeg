@@ -19,11 +19,9 @@ class DashboardController extends CI_Controller
 				'title' => "Dashboard"
 			);
 
-			$data['pegawai'] 					= $this->db->query('SELECT * FROM pegawai')->num_rows();
-			$data['jabatan'] 					= $this->db->query('SELECT * FROM jabatan')->num_rows();
-			$data['absensi']		 			= $this->db->query('SELECT * FROM absensi')->num_rows();
-			$data['laporan']		 			= $this->db->query('SELECT * FROM gaji')->num_rows();
-			$data['periode']	 				= $this->db->query("SELECT bulan, tahun, count(id_pegawai) as jumlah_karyawan, sum(gaji_bersih) as total FROM gaji GROUP BY bulan LIMIT 6")->result();
+			$data['dosen'] 						= $this->db->query('SELECT * FROM users WHERE role = 2')->num_rows();
+			$data['pegawai'] 					= $this->db->query('SELECT * FROM users WHERE role = 3')->num_rows();
+			$data['operator']		 			= $this->db->query('SELECT * FROM users WHERE role = 4')->num_rows();
 			$this->load->view('pages/Admin/dashboard/index.php', $data);
 		} else {
 			redirect('/');

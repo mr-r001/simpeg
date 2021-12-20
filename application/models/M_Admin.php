@@ -35,21 +35,10 @@ class M_Admin extends CI_Model
 	public function check_img($id)
 	{
 		$this->db->select('*');
-		$this->db->from('pegawai');
+		$this->db->from('users');
 		$this->db->where('id', $id);
 		$query = $this->db->get();
 
 		return $query;
-	}
-	public function find($id)
-	{
-		$result = $this->db->where('id_jasa', $id)
-			->limit(1)
-			->get('jasa_medis');
-		if ($result->num_rows() > 0) {
-			return $result->row();
-		} else {
-			return array();
-		}
 	}
 }

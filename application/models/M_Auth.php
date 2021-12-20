@@ -21,7 +21,7 @@ class M_Auth extends CI_Model
 	public function check_admin($username, $password)
 	{
 		$this->db->select('*');
-		$this->db->from('pegawai');
+		$this->db->from('users');
 		$this->db->where('username', $username);
 		$this->db->where('password', sha1($password));
 		$query = $this->db->get();
