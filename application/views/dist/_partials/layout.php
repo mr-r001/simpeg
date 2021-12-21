@@ -16,15 +16,23 @@ defined('BASEPATH') or exit('No direct script access allowed');
 						<div class="d-sm-none d-lg-inline-block">Hi, <?= $admin['nama'] ?></div>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right">
-						<a href="<?= base_url('profile/edit') ?>" class="dropdown-item has-icon text-danger">
-							<i class="fas fa-edit"></i> Edit Profile
-						</a>
+						<?php if ($this->session->userdata('role') === '1') {  ?>
+							<a href="<?= base_url('profile/edit') ?>" class="dropdown-item has-icon text-danger">
+								<i class="fas fa-edit"></i> Edit Profile
+							</a>
+						<?php } ?>
 						<a href="<?= base_url('profile/changepassword') ?>" class="dropdown-item has-icon text-danger">
 							<i class="fas fa-lock"></i> Ubah Password
 						</a>
-						<a href="<?= base_url('auth/logout') ?>" class="dropdown-item has-icon text-danger">
-							<i class="fas fa-sign-out-alt"></i> Logout
-						</a>
+						<?php if ($this->session->userdata('role') === '1') {  ?>
+							<a href="<?= base_url('auth/logout_admin') ?>" class="dropdown-item has-icon text-danger">
+								<i class="fas fa-sign-out-alt"></i> Logout
+							</a>
+						<?php } else { ?>
+							<a href="<?= base_url('auth/logout') ?>" class="dropdown-item has-icon text-danger">
+								<i class="fas fa-sign-out-alt"></i> Logout
+							</a>
+						<?php } ?>
 					</div>
 				</li>
 			</ul>

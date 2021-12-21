@@ -17,7 +17,7 @@ class ProfileController extends CI_Controller
 			$data = array(
 				'title' => "Edit Profile"
 			);
-			$data['profile'] = $this->db->get_where('pegawai', ['id_pegawai' => $this->session->userdata('id')])->row_array();
+			$data['profile'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 			$this->load->view('pages/profile/edit', $data);
 		} else {
 			echo "
@@ -64,15 +64,16 @@ class ProfileController extends CI_Controller
 			'username'		=> $username
 		);
 
-		$where = array('id_pegawai' => $id);
-		$this->M_Auth->update('pegawai', $data, $where);
+		$where = array('id' => $id);
+		$this->M_Auth->update('users', $data, $where);
+		$this->session->set_flashdata('success', 'Profile berhasil di update');
 		redirect('profile/edit');
 	}
 
 	public function changepassword()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['profile'] = $this->db->get_where('pegawai', ['id_pegawai' => $this->session->userdata('id')])->row_array();
+			$data['profile'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
 			$this->form_validation->set_rules('lama', 'Current Password', 'trim|required');
 			$this->form_validation->set_rules('baru', 'New Password', 'trim|required|min_length[3]|matches[konfirmasi]');
@@ -83,7 +84,7 @@ class ProfileController extends CI_Controller
 				$data = array(
 					'title' => "Ubah Password"
 				);
-				$data['profile'] = $this->db->get_where('pegawai', ['id_pegawai' => $this->session->userdata('id')])->row_array();
+				$data['profile'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 				$this->load->view('pages/profile/changepassword', $data);
 			} else {
 				$lama		= $this->input->post('lama');
@@ -97,8 +98,8 @@ class ProfileController extends CI_Controller
 						$password_hash = sha1($baru);
 
 						$this->db->set('password', $password_hash);
-						$this->db->where('id_pegawai', $this->session->userdata('id'));
-						$this->db->update('pegawai');
+						$this->db->where('id', $this->session->userdata('id'));
+						$this->db->update('users');
 
 						$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password Changed</div>');
 						redirect('profile/changepassword');

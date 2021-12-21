@@ -121,7 +121,7 @@ class UserPegawaiController extends CI_Controller
 		}
 
 		$data = array(
-			'password'		=> sha1($tgl),
+			'password'		=> sha1(date("dmY", strtotime($tgl))),
 		);
 		$where = array('id' => $id);
 		$this->db->update('users', $data, $where);

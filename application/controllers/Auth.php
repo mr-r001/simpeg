@@ -18,7 +18,23 @@ class Auth extends CI_Controller
 		if ($this->session->userdata('role') === '1') {
 			redirect('admin/dashboard');
 		} elseif ($this->session->userdata('role') === '2') {
-			redirect('pimpinan/dashboard');
+			redirect('dosen/dashboard');
+		} elseif ($this->session->userdata('role') === '3') {
+			redirect('pegawai/dashboard');
+		} else {
+			$data = array(
+				'title' => "Login"
+			);
+			$data['role']	 	= $this->db->query("SELECT * FROM hak_akses")->result();
+			$this->load->view('auth/auth', $data);
+		}
+	}
+	public function admin()
+	{
+		if ($this->session->userdata('role') === '1') {
+			redirect('admin/dashboard');
+		} elseif ($this->session->userdata('role') === '2') {
+			redirect('dosen/dashboard');
 		} elseif ($this->session->userdata('role') === '3') {
 			redirect('pegawai/dashboard');
 		} else {
@@ -31,6 +47,48 @@ class Auth extends CI_Controller
 	}
 
 	public function login()
+	{
+		$username 		= $this->input->post('username');
+		$password 		= $this->input->post('password');
+		$result			= $this->M_Auth->check_auth($username, $password);
+
+		if ($result->num_rows() > 0) {
+			$data		= $result->row_array();
+			$id			= $data['id'];
+			$nip		= $data['nip'];
+			$nama		= $data['nama'];
+			$username	= $data['username'];
+			$tgl		= $data['tgl_lahir'];
+			$img		= $data['img'];
+			$role		= $data['role'];
+			$sesdata	= array(
+				'id'		=> $id,
+				'nip'		=> $nip,
+				'nama'		=> $nama,
+				'username'	=> $username,
+				'tgl_lahir'	=> $tgl,
+				'img'		=> $img,
+				'role'		=> $role,
+				'logged_in'	=> TRUE
+			);
+			$this->session->set_userdata($sesdata);
+			if ($role === '2') {
+				redirect('dosen/dashboard');
+			} elseif ($role === '3') {
+				redirect('pegawai/dashboard');
+			}
+		} else {
+			$this->session->set_flashdata('failed', 'Login Gagal! Periksa kembali NIP dan Password Anda.');
+			redirect("/auth");
+		}
+		$data = array(
+			'title' => "Login"
+		);
+		$data['role']	 	= $this->db->query("SELECT * FROM hak_akses")->result();
+		$this->load->view('auth/index', $data);
+	}
+
+	public function login_admin()
 	{
 		$username 		= $this->input->post('username');
 		$password 		= $this->input->post('password');
@@ -54,25 +112,15 @@ class Auth extends CI_Controller
 				'logged_in'	=> TRUE
 			);
 			$this->session->set_userdata($sesdata);
-			if ($role === '1') {
-				redirect('admin/dashboard');
-			} elseif ($role === '2') {
-				redirect('pimpinan/dashboard');
-			} elseif ($role === '3') {
-				redirect('pegawai/dashboard');
-			}
+			redirect('admin/dashboard');
 		} else {
-			echo "
-				<script>
-					alert('Access Denied');
-					history.go(-1);
-				</script>
-			";
+			$this->session->set_flashdata('failed', 'Login Gagal! Periksa kembali Username dan Password Anda.');
+			redirect("/auth-admin");
 		}
 		$data = array(
 			'title' => "Login"
 		);
-		$data['role']	 	= $this->db->query("SELECT * FROM role")->result();
+		$data['role']	 	= $this->db->query("SELECT * FROM hak_akses")->result();
 		$this->load->view('auth/index', $data);
 	}
 
@@ -80,5 +128,10 @@ class Auth extends CI_Controller
 	{
 		$this->session->sess_destroy();
 		redirect('auth');
+	}
+	public function logout_admin()
+	{
+		$this->session->sess_destroy();
+		redirect('auth-admin');
 	}
 }

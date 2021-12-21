@@ -52,6 +52,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['default_controller'] = 'Auth';
 
 $route['auth'] = 'Auth';
+$route['auth-admin'] = 'Auth/admin';
 
 // ------------------------------------------------------------------------
 // Superadmin
@@ -174,13 +175,23 @@ $route['admin/kategori/update']                             = 'Admin/KategoriCon
 $route['admin/kategori/delete/(:any)']                      = 'Admin/KategoriController/delete/$1';
 
 // ------------------------------------------------------------------------
-// Pimpinan
+// Dosen
 // ------------------------------------------------------------------------
 
-$route['pimpinan/dashboard']                                = 'Pimpinan/DashboardController';
-$route['pimpinan/absensi']                                  = 'Pimpinan/AbsensiController';
-$route['pimpinan/slip']                                     = 'Pimpinan/SlipController';
-$route['pimpinan/laporan']                                  = 'Pimpinan/LaporanController';
+$route['dosen/dashboard']                                   = 'Dosen/DashboardController';
+
+$route['dosen/account']                                     = 'Dosen/AccountController';
+$route['dosen/account/update']                              = 'Dosen/AccountController/update';
+
+$route['dosen/personal']                                    = 'Dosen/PersonalController';
+$route['dosen/personal/update']                             = 'Dosen/PersonalController/update';
+
+$route['dosen/personal']                                    = 'Dosen/PersonalController';
+$route['dosen/personal/create']                             = 'Dosen/PersonalController/create';
+$route['dosen/personal/store']                              = 'Dosen/PersonalController/store';
+$route['dosen/personal/edit/(:any)']                        = 'Dosen/PersonalController/edit/$1';
+$route['dosen/personal/update']                             = 'Dosen/PersonalController/update';
+$route['dosen/personal/delete/(:any)']                      = 'Dosen/PersonalController/delete/$1';
 
 // ------------------------------------------------------------------------
 // Pegawai

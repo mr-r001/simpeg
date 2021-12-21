@@ -29,6 +29,17 @@ class M_Auth extends CI_Model
 		return $query;
 	}
 
+	public function check_auth($username, $password)
+	{
+		$this->db->select('*');
+		$this->db->from('users');
+		$this->db->where('nip', $username);
+		$this->db->where('password', sha1($password));
+		$query = $this->db->get();
+
+		return $query;
+	}
+
 	public function update($table, $data, $where)
 	{
 		$this->db->update($table, $data, $where);

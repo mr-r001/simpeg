@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-$data['admin'] = $this->db->get_where('pegawai', ['id_pegawai' => $this->session->userdata('id')])->row_array();
+$data['admin'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 $this->load->view('dist/_partials/header', $data);
 ?>
 <!-- Main Content -->

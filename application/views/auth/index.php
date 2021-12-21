@@ -11,9 +11,19 @@ $this->load->view('dist/_partials/header');
                         <div class="card-header">
                             <h5>Login</h5>
                         </div>
+                        <?php if ($this->session->flashdata('failed')) { ?>
+                            <div class="alert alert-danger alert-dismissible show fade">
+                                <div class="alert-body">
+                                    <button class="close" data-dismiss="alert">
+                                        <span>×</span>
+                                    </button>
+                                    <?= $this->session->flashdata('failed'); ?>
+                                </div>
+                            </div>
+                        <?php } ?>
                         <hr>
                         <div class="card-body">
-                            <form method="POST" action="<?= site_url('auth/login') ?>" class="needs-validation" novalidate="">
+                            <form method="POST" action="<?= site_url('auth/login_admin') ?>" class="needs-validation" novalidate="">
                                 <div class="form-group">
                                     <label for="username">Username</label>
                                     <input id="username" type="text" class="form-control" name="username" tabindex="1" placeholder="Masukkan Username" required autofocus>
