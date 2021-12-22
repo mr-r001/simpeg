@@ -186,12 +186,54 @@ $route['dosen/account/update']                              = 'Dosen/AccountCont
 $route['dosen/personal']                                    = 'Dosen/PersonalController';
 $route['dosen/personal/update']                             = 'Dosen/PersonalController/update';
 
-$route['dosen/personal']                                    = 'Dosen/PersonalController';
-$route['dosen/personal/create']                             = 'Dosen/PersonalController/create';
-$route['dosen/personal/store']                              = 'Dosen/PersonalController/store';
-$route['dosen/personal/edit/(:any)']                        = 'Dosen/PersonalController/edit/$1';
-$route['dosen/personal/update']                             = 'Dosen/PersonalController/update';
-$route['dosen/personal/delete/(:any)']                      = 'Dosen/PersonalController/delete/$1';
+$route['dosen/pendidikan']                                  = 'Dosen/PendidikanController';
+$route['dosen/pendidikan/create']                           = 'Dosen/PendidikanController/create';
+$route['dosen/pendidikan/store']                            = 'Dosen/PendidikanController/store';
+$route['dosen/pendidikan/edit/(:any)']                      = 'Dosen/PendidikanController/edit/$1';
+$route['dosen/pendidikan/update']                           = 'Dosen/PendidikanController/update';
+$route['dosen/pendidikan/delete/(:any)']                    = 'Dosen/PendidikanController/delete/$1';
+
+$route['dosen/tridharma/pengajaran']                        = 'Dosen/PengajaranController';
+$route['dosen/tridharma/pengajaran/create']                 = 'Dosen/PengajaranController/create';
+$route['dosen/tridharma/pengajaran/store']                  = 'Dosen/PengajaranController/store';
+$route['dosen/tridharma/pengajaran/edit/(:any)']            = 'Dosen/PengajaranController/edit/$1';
+$route['dosen/tridharma/pengajaran/update']                 = 'Dosen/PengajaranController/update';
+$route['dosen/tridharma/pengajaran/delete/(:any)']          = 'Dosen/PengajaranController/delete/$1';
+
+$route['dosen/tridharma/penelitian']                        = 'Dosen/PenelitianController';
+$route['dosen/tridharma/penelitian/create']                 = 'Dosen/PenelitianController/create';
+$route['dosen/tridharma/penelitian/store']                  = 'Dosen/PenelitianController/store';
+$route['dosen/tridharma/penelitian/edit/(:any)']            = 'Dosen/PenelitianController/edit/$1';
+$route['dosen/tridharma/penelitian/update']                 = 'Dosen/PenelitianController/update';
+$route['dosen/tridharma/penelitian/delete/(:any)']          = 'Dosen/PenelitianController/delete/$1';
+
+$route['dosen/tridharma/buku']                              = 'Dosen/BukuController';
+$route['dosen/tridharma/buku/create']                       = 'Dosen/BukuController/create';
+$route['dosen/tridharma/buku/store']                        = 'Dosen/BukuController/store';
+$route['dosen/tridharma/buku/edit/(:any)']                  = 'Dosen/BukuController/edit/$1';
+$route['dosen/tridharma/buku/update']                       = 'Dosen/BukuController/update';
+$route['dosen/tridharma/buku/delete/(:any)']                = 'Dosen/BukuController/delete/$1';
+
+$route['dosen/tridharma/haki']                              = 'Dosen/HakiController';
+$route['dosen/tridharma/haki/create']                       = 'Dosen/HakiController/create';
+$route['dosen/tridharma/haki/store']                        = 'Dosen/HakiController/store';
+$route['dosen/tridharma/haki/edit/(:any)']                  = 'Dosen/HakiController/edit/$1';
+$route['dosen/tridharma/haki/update']                       = 'Dosen/HakiController/update';
+$route['dosen/tridharma/haki/delete/(:any)']                = 'Dosen/HakiController/delete/$1';
+
+$route['dosen/tridharma/pengabdian']                        = 'Dosen/PengabdianController';
+$route['dosen/tridharma/pengabdian/create']                 = 'Dosen/PengabdianController/create';
+$route['dosen/tridharma/pengabdian/store']                  = 'Dosen/PengabdianController/store';
+$route['dosen/tridharma/pengabdian/edit/(:any)']            = 'Dosen/PengabdianController/edit/$1';
+$route['dosen/tridharma/pengabdian/update']                 = 'Dosen/PengabdianController/update';
+$route['dosen/tridharma/pengabdian/delete/(:any)']          = 'Dosen/PengabdianController/delete/$1';
+
+$route['dosen/tridharma/pemateri']                          = 'Dosen/PemateriController';
+$route['dosen/tridharma/pemateri/create']                   = 'Dosen/PemateriController/create';
+$route['dosen/tridharma/pemateri/store']                    = 'Dosen/PemateriController/store';
+$route['dosen/tridharma/pemateri/edit/(:any)']              = 'Dosen/PemateriController/edit/$1';
+$route['dosen/tridharma/pemateri/update']                   = 'Dosen/PemateriController/update';
+$route['dosen/tridharma/pemateri/delete/(:any)']            = 'Dosen/PemateriController/delete/$1';
 
 // ------------------------------------------------------------------------
 // Pegawai

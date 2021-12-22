@@ -12,4 +12,23 @@ class M_Dosen extends CI_Model
 
         return $query;
     }
+    public function check_file($id)
+    {
+        $this->db->select('*');
+        $this->db->from('pendidikan_dosen');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+
+        return $query;
+    }
+
+    public function check($id, $table)
+    {
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+
+        return $query;
+    }
 }

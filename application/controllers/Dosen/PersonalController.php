@@ -71,6 +71,11 @@ class PersonalController extends CI_Controller
 
 		if ($img) {
 			// Jika Field ada
+			if ($foto != 'default.png') {
+				$target_file	= './assets/img/avatar/' . $foto;
+				unlink($target_file);
+			}
+
 			$tmp_name 				= $_FILES['photo']['tmp_name'];
 			$upload_path			= './assets/img/avatar/';
 			$dname = explode(".", $_FILES['photo']['name']);
@@ -78,10 +83,6 @@ class PersonalController extends CI_Controller
 			$file_name = rand(0, 1000000);
 			move_uploaded_file($tmp_name, "$upload_path/$file_name.$ext");
 
-			if ($foto != 'default.png') {
-				$target_file	= './assets/img/avatar/' . $foto;
-				unlink($target_file);
-			}
 
 			$data = array(
 				'nik'			=> $nik,
