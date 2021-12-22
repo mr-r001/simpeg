@@ -178,30 +178,30 @@ defined('BASEPATH') or exit('No direct script access allowed');
 						</li>
 					</ul>
 				</li>
-				<li class="dropdown">
+				<li class="dropdown <?= $this->uri->segment(2) == 'penunjang' ? 'active' : ''; ?>">
 					<a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-life-ring"></i> <span>Data Penunjang</span></a>
 					<ul class="dropdown-menu">
-						<li><a class="nav-link" href="#">Panitia Kegiatan</a></li>
-						<li><a class="nav-link" href="#">Organisasi Profesi</a></li>
-						<li><a class="nav-link" href="#">Organisasi Non Profesi</a></li>
+						<li class="<?= $this->uri->segment(3) == 'panitia' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('dosen/penunjang/panitia') ?>">Panitia Kegiatan</a></li>
+						<li class="<?= $this->uri->segment(3) == 'profesi' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('dosen/penunjang/profesi') ?>">Organisasi Profesi</a></li>
+						<li class="<?= $this->uri->segment(3) == 'nonprofesi' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('dosen/penunjang/nonprofesi') ?>">Organisasi Non Profesi</a></li>
 					</ul>
 				</li>
-				<!-- <li class="<?= $this->uri->segment(2) == 'dashboard' ? 'active' : ''; ?>">
-					<a class="nav-link" href="<?= base_url('dosen/dashboard') ?>">
-						<i class="fas fa-fire"></i>
+				<li class="<?= $this->uri->segment(2) == 'penghargaan' ? 'active' : ''; ?>">
+					<a class="nav-link" href="<?= base_url('dosen/penghargaan') ?>">
+						<i class="fas fa-trophy"></i>
 						<span>Data Penghargaan</span>
 					</a>
 				</li>
-				<li class="dropdown">
-					<a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Data Pelatihan</span></a>
+				<li class="dropdown <?= $this->uri->segment(2) == 'pelatihan' ? 'active' : ''; ?>">
+					<a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-book-open"></i> <span>Data Pelatihan</span></a>
 					<ul class="dropdown-menu">
-						<li><a class="nav-link" href="#">Seminar</a></li>
-						<li><a class="nav-link" href="#">Workshop</a></li>
-						<li><a class="nav-link" href="#">Kursus></li>
-						<li><a class="nav-link" href="#">Pelatihan></li>
-						<li><a class="nav-link" href="#">Lainnya></li>
+						<li class="<?= $this->uri->segment(3) == 'seminar' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('dosen/pelatihan/seminar') ?>">Seminar</a></li>
+						<li class="<?= $this->uri->segment(3) == 'workshop' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('dosen/pelatihan/workshop') ?>">Workshop</a></li>
+						<li class="<?= $this->uri->segment(3) == 'kursus' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('dosen/pelatihan/kursus') ?>">Kursus</a></li>
+						<li class="<?= $this->uri->segment(3) == 'pelatihan' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('dosen/pelatihan/pelatihan') ?>">Pelatihan</a></li>
+						<li class="<?= $this->uri->segment(3) == 'lainnya' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('dosen/pelatihan/lainnya') ?>">Lainnya</a></li>
 					</ul>
-				</li> -->
+				</li>
 			</ul>
 		<?php } ?>
 		<?php if ($this->session->userdata('role') === '3') {  ?>

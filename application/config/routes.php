@@ -235,6 +235,69 @@ $route['dosen/tridharma/pemateri/edit/(:any)']              = 'Dosen/PemateriCon
 $route['dosen/tridharma/pemateri/update']                   = 'Dosen/PemateriController/update';
 $route['dosen/tridharma/pemateri/delete/(:any)']            = 'Dosen/PemateriController/delete/$1';
 
+$route['dosen/penunjang/panitia']                           = 'Dosen/PanitiaController';
+$route['dosen/penunjang/panitia/create']                    = 'Dosen/PanitiaController/create';
+$route['dosen/penunjang/panitia/store']                     = 'Dosen/PanitiaController/store';
+$route['dosen/penunjang/panitia/edit/(:any)']               = 'Dosen/PanitiaController/edit/$1';
+$route['dosen/penunjang/panitia/update']                    = 'Dosen/PanitiaController/update';
+$route['dosen/penunjang/panitia/delete/(:any)']             = 'Dosen/PanitiaController/delete/$1';
+
+$route['dosen/penunjang/profesi']                           = 'Dosen/ProfesiController';
+$route['dosen/penunjang/profesi/create']                    = 'Dosen/ProfesiController/create';
+$route['dosen/penunjang/profesi/store']                     = 'Dosen/ProfesiController/store';
+$route['dosen/penunjang/profesi/edit/(:any)']               = 'Dosen/ProfesiController/edit/$1';
+$route['dosen/penunjang/profesi/update']                    = 'Dosen/ProfesiController/update';
+$route['dosen/penunjang/profesi/delete/(:any)']             = 'Dosen/ProfesiController/delete/$1';
+
+$route['dosen/penunjang/nonprofesi']                        = 'Dosen/NonprofesiController';
+$route['dosen/penunjang/nonprofesi/create']                 = 'Dosen/NonprofesiController/create';
+$route['dosen/penunjang/nonprofesi/store']                  = 'Dosen/NonprofesiController/store';
+$route['dosen/penunjang/nonprofesi/edit/(:any)']            = 'Dosen/NonprofesiController/edit/$1';
+$route['dosen/penunjang/nonprofesi/update']                 = 'Dosen/NonprofesiController/update';
+$route['dosen/penunjang/nonprofesi/delete/(:any)']          = 'Dosen/NonprofesiController/delete/$1';
+
+$route['dosen/penghargaan']                                 = 'Dosen/PenghargaanController';
+$route['dosen/penghargaan/create']                          = 'Dosen/PenghargaanController/create';
+$route['dosen/penghargaan/store']                           = 'Dosen/PenghargaanController/store';
+$route['dosen/penghargaan/edit/(:any)']                     = 'Dosen/PenghargaanController/edit/$1';
+$route['dosen/penghargaan/update']                          = 'Dosen/PenghargaanController/update';
+$route['dosen/penghargaan/delete/(:any)']                   = 'Dosen/PenghargaanController/delete/$1';
+
+$route['dosen/pelatihan/seminar']                           = 'Dosen/SeminarController';
+$route['dosen/pelatihan/seminar/create']                    = 'Dosen/SeminarController/create';
+$route['dosen/pelatihan/seminar/store']                     = 'Dosen/SeminarController/store';
+$route['dosen/pelatihan/seminar/edit/(:any)']               = 'Dosen/SeminarController/edit/$1';
+$route['dosen/pelatihan/seminar/update']                    = 'Dosen/SeminarController/update';
+$route['dosen/pelatihan/seminar/delete/(:any)']             = 'Dosen/SeminarController/delete/$1';
+
+$route['dosen/pelatihan/workshop']                          = 'Dosen/WorkshopController';
+$route['dosen/pelatihan/workshop/create']                   = 'Dosen/WorkshopController/create';
+$route['dosen/pelatihan/workshop/store']                    = 'Dosen/WorkshopController/store';
+$route['dosen/pelatihan/workshop/edit/(:any)']              = 'Dosen/WorkshopController/edit/$1';
+$route['dosen/pelatihan/workshop/update']                   = 'Dosen/WorkshopController/update';
+$route['dosen/pelatihan/workshop/delete/(:any)']            = 'Dosen/WorkshopController/delete/$1';
+
+$route['dosen/pelatihan/kursus']                            = 'Dosen/KursusController';
+$route['dosen/pelatihan/kursus/create']                     = 'Dosen/KursusController/create';
+$route['dosen/pelatihan/kursus/store']                      = 'Dosen/KursusController/store';
+$route['dosen/pelatihan/kursus/edit/(:any)']                = 'Dosen/KursusController/edit/$1';
+$route['dosen/pelatihan/kursus/update']                     = 'Dosen/KursusController/update';
+$route['dosen/pelatihan/kursus/delete/(:any)']              = 'Dosen/KursusController/delete/$1';
+
+$route['dosen/pelatihan/pelatihan']                         = 'Dosen/PelatihanController';
+$route['dosen/pelatihan/pelatihan/create']                  = 'Dosen/PelatihanController/create';
+$route['dosen/pelatihan/pelatihan/store']                   = 'Dosen/PelatihanController/store';
+$route['dosen/pelatihan/pelatihan/edit/(:any)']             = 'Dosen/PelatihanController/edit/$1';
+$route['dosen/pelatihan/pelatihan/update']                  = 'Dosen/PelatihanController/update';
+$route['dosen/pelatihan/pelatihan/delete/(:any)']           = 'Dosen/PelatihanController/delete/$1';
+
+$route['dosen/pelatihan/lainnya']                           = 'Dosen/LainnyaController';
+$route['dosen/pelatihan/lainnya/create']                    = 'Dosen/LainnyaController/create';
+$route['dosen/pelatihan/lainnya/store']                     = 'Dosen/LainnyaController/store';
+$route['dosen/pelatihan/lainnya/edit/(:any)']               = 'Dosen/LainnyaController/edit/$1';
+$route['dosen/pelatihan/lainnya/update']                    = 'Dosen/LainnyaController/update';
+$route['dosen/pelatihan/lainnya/delete/(:any)']             = 'Dosen/LainnyaController/delete/$1';
+
 // ------------------------------------------------------------------------
 // Pegawai
 // ------------------------------------------------------------------------
