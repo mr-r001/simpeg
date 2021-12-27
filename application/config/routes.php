@@ -326,7 +326,67 @@ $route['dosen/pelatihan/lainnya/delete/(:any)']             = 'Dosen/LainnyaCont
 
 $route['pegawai/dashboard']                                 = 'Pegawai/DashboardController';
 
+$route['pegawai/account']                                   = 'Pegawai/AccountController';
+$route['pegawai/account/update']                            = 'Pegawai/AccountController/update';
 
+$route['pegawai/personal']                                  = 'Pegawai/PersonalController';
+$route['pegawai/personal/update']                           = 'Pegawai/PersonalController/update';
+
+$route['pegawai/pendidikan']                                = 'Pegawai/PendidikanController';
+$route['pegawai/pendidikan/create']                         = 'Pegawai/PendidikanController/create';
+$route['pegawai/pendidikan/store']                          = 'Pegawai/PendidikanController/store';
+$route['pegawai/pendidikan/edit/(:any)']                    = 'Pegawai/PendidikanController/edit/$1';
+$route['pegawai/pendidikan/update']                         = 'Pegawai/PendidikanController/update';
+$route['pegawai/pendidikan/delete/(:any)']                  = 'Pegawai/PendidikanController/delete/$1';
+
+$route['pegawai/kepangkatan']                               = 'Pegawai/KepangkatanController';
+$route['pegawai/kepangkatan/update']                        = 'Pegawai/KepangkatanController/update';
+
+$route['pegawai/penghargaan']                               = 'Pegawai/PenghargaanController';
+$route['pegawai/penghargaan/create']                        = 'Pegawai/PenghargaanController/create';
+$route['pegawai/penghargaan/store']                         = 'Pegawai/PenghargaanController/store';
+$route['pegawai/penghargaan/edit/(:any)']                   = 'Pegawai/PenghargaanController/edit/$1';
+$route['pegawai/penghargaan/update']                        = 'Pegawai/PenghargaanController/update';
+$route['pegawai/penghargaan/delete/(:any)']                 = 'Pegawai/PenghargaanController/delete/$1';
+
+$route['pegawai/pelatihan/seminar']                         = 'Pegawai/SeminarController';
+$route['pegawai/pelatihan/seminar/create']                  = 'Pegawai/SeminarController/create';
+$route['pegawai/pelatihan/seminar/store']                   = 'Pegawai/SeminarController/store';
+$route['pegawai/pelatihan/seminar/edit/(:any)']             = 'Pegawai/SeminarController/edit/$1';
+$route['pegawai/pelatihan/seminar/update']                  = 'Pegawai/SeminarController/update';
+$route['pegawai/pelatihan/seminar/delete/(:any)']           = 'Pegawai/SeminarController/delete/$1';
+
+$route['pegawai/pelatihan/workshop']                        = 'Pegawai/WorkshopController';
+$route['pegawai/pelatihan/workshop/create']                 = 'Pegawai/WorkshopController/create';
+$route['pegawai/pelatihan/workshop/store']                  = 'Pegawai/WorkshopController/store';
+$route['pegawai/pelatihan/workshop/edit/(:any)']            = 'Pegawai/WorkshopController/edit/$1';
+$route['pegawai/pelatihan/workshop/update']                 = 'Pegawai/WorkshopController/update';
+$route['pegawai/pelatihan/workshop/delete/(:any)']          = 'Pegawai/WorkshopController/delete/$1';
+
+$route['pegawai/pelatihan/kursus']                          = 'Pegawai/KursusController';
+$route['pegawai/pelatihan/kursus/create']                   = 'Pegawai/KursusController/create';
+$route['pegawai/pelatihan/kursus/store']                    = 'Pegawai/KursusController/store';
+$route['pegawai/pelatihan/kursus/edit/(:any)']              = 'Pegawai/KursusController/edit/$1';
+$route['pegawai/pelatihan/kursus/update']                   = 'Pegawai/KursusController/update';
+$route['pegawai/pelatihan/kursus/delete/(:any)']            = 'Pegawai/KursusController/delete/$1';
+
+$route['pegawai/pelatihan/pelatihan']                       = 'Pegawai/PelatihanController';
+$route['pegawai/pelatihan/pelatihan/create']                = 'Pegawai/PelatihanController/create';
+$route['pegawai/pelatihan/pelatihan/store']                 = 'Pegawai/PelatihanController/store';
+$route['pegawai/pelatihan/pelatihan/edit/(:any)']           = 'Pegawai/PelatihanController/edit/$1';
+$route['pegawai/pelatihan/pelatihan/update']                = 'Pegawai/PelatihanController/update';
+$route['pegawai/pelatihan/pelatihan/delete/(:any)']         = 'Pegawai/PelatihanController/delete/$1';
+
+$route['pegawai/pelatihan/lainnya']                         = 'Pegawai/LainnyaController';
+$route['pegawai/pelatihan/lainnya/create']                  = 'Pegawai/LainnyaController/create';
+$route['pegawai/pelatihan/lainnya/store']                   = 'Pegawai/LainnyaController/store';
+$route['pegawai/pelatihan/lainnya/edit/(:any)']             = 'Pegawai/LainnyaController/edit/$1';
+$route['pegawai/pelatihan/lainnya/update']                  = 'Pegawai/LainnyaController/update';
+$route['pegawai/pelatihan/lainnya/delete/(:any)']           = 'Pegawai/LainnyaController/delete/$1';
+
+// ------------------------------------------------------------------------
+// Profile
+// ------------------------------------------------------------------------
 $route['profile/edit']                                      = 'ProfileController/edit';
 $route['profile/update']                                    = 'ProfileController/update';
 $route['profile/changepassword']                            = 'ProfileController/changepassword';

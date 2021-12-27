@@ -52,6 +52,20 @@ class UserPegawaiController extends CI_Controller
 		);
 
 		$this->db->insert('users', $data);
+		$insert_id = $this->db->insert_id();
+
+		$dataPegawai = array(
+			'id_user'		=> $insert_id,
+			'nama'			=> $name,
+			'tgl_lahir'		=> $tgl,
+		);
+		$this->db->insert('personal_pegawai', $dataPegawai);
+
+		$dataKepangkatan = array(
+			'id_user'		=> $insert_id,
+		);
+		$this->db->insert('kepangkatan_pegawai', $dataKepangkatan);
+
 		$this->session->set_flashdata('success', 'Data berhasil disimpan');
 		redirect('admin/user-pegawai');
 	}
