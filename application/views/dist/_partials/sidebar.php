@@ -263,5 +263,36 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				</li>
 			</ul>
 		<?php } ?>
+		<?php if ($this->session->userdata('role') === '4') {  ?>
+			<ul class="sidebar-menu">
+				<li class="menu-header">Dashboard</li>
+				<li class="<?= $this->uri->segment(2) == 'dashboard' ? 'active' : ''; ?>">
+					<a class="nav-link" href="<?= base_url('operator/dashboard') ?>">
+						<i class="fas fa-fire"></i>
+						<span>Dashboard</span>
+					</a>
+				</li>
+				<li class="menu-header">Data Master</li>
+				<li class="<?= $this->uri->segment(2) == 'user-dosen' ? 'active' : ''; ?>">
+					<a class="nav-link" href="<?= base_url('operator/user-dosen') ?>">
+						<i class="fas fa-users"></i>
+						<span>Manage User Dosen</span>
+					</a>
+				</li>
+				<li class="<?= $this->uri->segment(2) == 'user-pegawai'  ? 'active' : ''; ?>">
+					<a class="nav-link" href="<?= base_url('operator/user-pegawai') ?>">
+						<i class="fas fa-users"></i>
+						<span>Manage User Pegawai</span>
+					</a>
+				</li>
+				<li class="menu-header">Report</li>
+				<li class="<?= $this->uri->segment(2) == 'user-dosen' ? 'active' : ''; ?>">
+					<a class="nav-link" href="<?= base_url('operator/user-dosen') ?>">
+						<i class="fas fa-file"></i>
+						<span>Laporan</span>
+					</a>
+				</li>
+			</ul>
+		<?php } ?>
 	</aside>
 </div>

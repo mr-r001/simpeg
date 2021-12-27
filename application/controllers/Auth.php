@@ -21,6 +21,8 @@ class Auth extends CI_Controller
 			redirect('dosen/dashboard');
 		} elseif ($this->session->userdata('role') === '3') {
 			redirect('pegawai/dashboard');
+		} elseif ($this->session->userdata('role') === '4') {
+			redirect('operator/dashboard');
 		} else {
 			$data = array(
 				'title' => "Login"
@@ -37,6 +39,8 @@ class Auth extends CI_Controller
 			redirect('dosen/dashboard');
 		} elseif ($this->session->userdata('role') === '3') {
 			redirect('pegawai/dashboard');
+		} elseif ($this->session->userdata('role') === '4') {
+			redirect('operator/dashboard');
 		} else {
 			$data = array(
 				'title' => "Login"
@@ -76,6 +80,8 @@ class Auth extends CI_Controller
 				redirect('dosen/dashboard');
 			} elseif ($role === '3') {
 				redirect('pegawai/dashboard');
+			} elseif ($role === '4') {
+				redirect('operator/dashboard');
 			}
 		} else {
 			$this->session->set_flashdata('failed', 'Login Gagal! Periksa kembali NIP dan Password Anda.');

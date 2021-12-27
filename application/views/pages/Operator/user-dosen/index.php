@@ -7,10 +7,10 @@ $this->load->view('dist/_partials/header', $data);
 <div class="main-content">
 	<section class="section">
 		<div class="section-header">
-			<h1>Data Pelatihan Lainnya</h1>
+			<h1>Manage User Dosen</h1>
 			<div class="section-header-breadcrumb">
 				<div class="breadcrumb-item active"><a href="<?= base_url('admin/dashboard') ?>">Dashboard</a></div>
-				<div class="breadcrumb-item">Data Pelatihan Lainnya</div>
+				<div class="breadcrumb-item">Manage User Dosen</div>
 			</div>
 		</div>
 		<?php if ($this->session->flashdata('success')) { ?>
@@ -24,7 +24,7 @@ $this->load->view('dist/_partials/header', $data);
 			</div>
 		<?php } ?>
 		<div class="section-body">
-			<a href="<?= base_url('pegawai/pelatihan/lainnya/create') ?>" class="btn btn-primary btn-s"><i class="fa fa-plus"></i> Tambah Data</a><br><br>
+			<a href="<?= base_url('admin/user-dosen/create') ?>" class="btn btn-primary btn-s"><i class="fa fa-plus"></i> Tambah Data</a><br><br>
 			<div class="row">
 				<div class="col-12">
 					<div class="card">
@@ -36,30 +36,27 @@ $this->load->view('dist/_partials/header', $data);
 											<th class="text-center">
 												#
 											</th>
-											<th>Judul Kegiatan</th>
-											<th>Tahun</th>
-											<th>Kota/Negara</th>
-											<th>Tingkatan</th>
-											<th>Document</th>
+											<th>NIP</th>
+											<th>Nama</th>
+											<th>Fakultas</th>
+											<th>Program Studi</th>
 											<th>Aksi</th>
 										</tr>
 									</thead>
 									<tbody>
 										<?php
 										$no = 1;
-										foreach ($lainnya as $data) : ?>
+										foreach ($dosen as $data) : ?>
 											<tr>
 												<td><?= $no++ ?></td>
-												<td><?= $data->judul ?></td>
-												<td><?= $data->tahun ?></td>
-												<td><?= $data->kota ?></td>
-												<td><?= $data->tingkatan ?></td>
+												<td><?= $data->nip ?></td>
+												<td><?= $data->nama ?></td>
+												<td><?= $data->nama_fakultas ?></td>
+												<td><?= $data->nama_prodi ?></td>
 												<td>
-													<a href="<?= base_url('assets/img/pegawai/sertif_lainnya/') . $data->sertifikat ?>" download class="btn btn-primary">Download</a>
-												</td>
-												<td>
-													<a href="<?php echo base_url('pegawai/pelatihan/lainnya/edit/') . $data->id ?>" class="btn btn-success" title="Edit"><i class="fa fa-edit"></i> </a>
-													<a href="<?php echo base_url('pegawai/pelatihan/lainnya/delete/') . $data->id ?>" class="btn btn-danger" onclick="javascript: return confirm('Are you sure want to Delete ?')" title="Delete"><i class="fa fa-trash"></i></a>
+													<a href="<?php echo base_url('admin/user-dosen/edit/') . $data->id_dosen ?>" class="btn btn-success" title="Edit"><i class="fa fa-edit"></i> </a>
+													<a href="<?php echo base_url('admin/user-dosen/delete/') . $data->id_dosen ?>" class="btn btn-danger" onclick="javascript: return confirm('Are you sure want to Delete ?')" title="Delete"><i class="fa fa-trash"></i></a>
+													<a href="<?php echo base_url('admin/user-dosen/reset/') . $data->id_dosen ?>" class="btn btn-primary" onclick="javascript: return confirm('Are you sure want to Reset ?')" title="Delete"><i class="fa fa-key"></i></a>
 												</td>
 											</tr>
 										<?php endforeach; ?>

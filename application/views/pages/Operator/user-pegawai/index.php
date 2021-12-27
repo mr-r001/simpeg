@@ -7,10 +7,10 @@ $this->load->view('dist/_partials/header', $data);
 <div class="main-content">
 	<section class="section">
 		<div class="section-header">
-			<h1>Data Seminar</h1>
+			<h1>Manage User Pegawai</h1>
 			<div class="section-header-breadcrumb">
 				<div class="breadcrumb-item active"><a href="<?= base_url('admin/dashboard') ?>">Dashboard</a></div>
-				<div class="breadcrumb-item">Data Seminar</div>
+				<div class="breadcrumb-item">Manage User Pegawai</div>
 			</div>
 		</div>
 		<?php if ($this->session->flashdata('success')) { ?>
@@ -24,7 +24,7 @@ $this->load->view('dist/_partials/header', $data);
 			</div>
 		<?php } ?>
 		<div class="section-body">
-			<a href="<?= base_url('pegawai/pelatihan/seminar/create') ?>" class="btn btn-primary btn-s"><i class="fa fa-plus"></i> Tambah Data</a><br><br>
+			<a href="<?= base_url('admin/user-pegawai/create') ?>" class="btn btn-primary btn-s"><i class="fa fa-plus"></i> Tambah Data</a><br><br>
 			<div class="row">
 				<div class="col-12">
 					<div class="card">
@@ -36,30 +36,23 @@ $this->load->view('dist/_partials/header', $data);
 											<th class="text-center">
 												#
 											</th>
-											<th>Judul Seminar</th>
-											<th>Tahun</th>
-											<th>Kota/Negara</th>
-											<th>Tingkatan</th>
-											<th>Document</th>
+											<th>NIP</th>
+											<th>Nama</th>
 											<th>Aksi</th>
 										</tr>
 									</thead>
 									<tbody>
 										<?php
 										$no = 1;
-										foreach ($seminar as $data) : ?>
+										foreach ($pegawai as $data) : ?>
 											<tr>
 												<td><?= $no++ ?></td>
-												<td><?= $data->judul ?></td>
-												<td><?= $data->tahun ?></td>
-												<td><?= $data->kota ?></td>
-												<td><?= $data->tingkatan ?></td>
+												<td><?= $data->nip ?></td>
+												<td><?= $data->nama ?></td>
 												<td>
-													<a href="<?= base_url('assets/img/pegawai/sertif_seminar/') . $data->sertifikat ?>" download class="btn btn-primary">Download</a>
-												</td>
-												<td>
-													<a href="<?php echo base_url('pegawai/pelatihan/seminar/edit/') . $data->id ?>" class="btn btn-success" title="Edit"><i class="fa fa-edit"></i> </a>
-													<a href="<?php echo base_url('pegawai/pelatihan/seminar/delete/') . $data->id ?>" class="btn btn-danger" onclick="javascript: return confirm('Are you sure want to Delete ?')" title="Delete"><i class="fa fa-trash"></i></a>
+													<a href="<?php echo base_url('admin/user-pegawai/edit/') . $data->id ?>" class="btn btn-success" title="Edit"><i class="fa fa-edit"></i> </a>
+													<a href="<?php echo base_url('admin/user-pegawai/delete/') . $data->id ?>" class="btn btn-danger" onclick="javascript: return confirm('Are you sure want to Delete ?')" title="Delete"><i class="fa fa-trash"></i></a>
+													<a href="<?php echo base_url('admin/user-pegawai/reset/') . $data->id ?>" class="btn btn-primary" onclick="javascript: return confirm('Are you sure want to Reset ?')" title="Delete"><i class="fa fa-key"></i></a>
 												</td>
 											</tr>
 										<?php endforeach; ?>

@@ -7,18 +7,8 @@ $this->load->view('dist/_partials/header', $data);
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Data Akun</h1>
+            <h1>Edit Data</h1>
         </div>
-        <?php if ($this->session->flashdata('success')) { ?>
-            <div class="alert alert-primary alert-dismissible show fade">
-                <div class="alert-body">
-                    <button class="close" data-dismiss="alert">
-                        <span>×</span>
-                    </button>
-                    <?= $this->session->flashdata('success'); ?>
-                </div>
-            </div>
-        <?php } ?>
         <div class="section-body">
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-8">
@@ -28,20 +18,20 @@ $this->load->view('dist/_partials/header', $data);
                         </div>
                         <div class="card-body">
                             <?php foreach ($pegawai as $data) : ?>
-                                <form method="post" class="needs-validation" action="<?php echo site_url('pegawai/account/update') ?>" novalidate="">
+                                <form method="post" class="needs-validation" action="<?php echo site_url('admin/user-pegawai/update') ?>" novalidate="">
                                     <input type="hidden" name="id" value="<?= $data->id ?>">
+                                    <div class="form-group">
+                                        <label for="nip">NIP<sup class="text-danger">*</sup></label>
+                                        <input id="nip" type="text" class="form-control" name="nip" tabindex="1" value="<?= $data->nip ?>" required autofocus>
+                                        <div class="invalid-feedback">
+                                            Masukkan NIP terlebih dahulu
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label for="name">Nama<sup class="text-danger">*</sup></label>
                                         <input id="name" type="text" class="form-control" name="name" tabindex="1" value="<?= $data->nama ?>" required autofocus>
                                         <div class="invalid-feedback">
-                                            Masukkan Nama terlebih dahulu
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="username">Username<sup class="text-danger">*</sup></label>
-                                        <input id="username" type="text" class="form-control" name="username" tabindex="1" placeholder="Masukkan Username anda" value="<?= $data->username ?>" required>
-                                        <div class="invalid-feedback">
-                                            Masukkan Username terlebih dahulu
+                                            Masukkan NIP terlebih dahulu
                                         </div>
                                     </div>
                                     <div class="form-group">

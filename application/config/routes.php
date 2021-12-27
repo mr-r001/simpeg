@@ -385,6 +385,28 @@ $route['pegawai/pelatihan/lainnya/update']                  = 'Pegawai/LainnyaCo
 $route['pegawai/pelatihan/lainnya/delete/(:any)']           = 'Pegawai/LainnyaController/delete/$1';
 
 // ------------------------------------------------------------------------
+// Operator Kepegawaian
+// ------------------------------------------------------------------------
+
+$route['operator/dashboard']                                = 'Operator/DashboardController';
+
+$route['operator/user-dosen']                               = 'Operator/UserDosenController';
+$route['operator/user-dosen/create']                        = 'Operator/UserDosenController/create';
+$route['operator/user-dosen/store']                         = 'Operator/UserDosenController/store';
+$route['operator/user-dosen/edit/(:any)']                   = 'Operator/UserDosenController/edit/$1';
+$route['operator/user-dosen/update']                        = 'Operator/UserDosenController/update';
+$route['operator/user-dosen/delete/(:any)']                 = 'Operator/UserDosenController/delete/$1';
+$route['operator/user-dosen/reset/(:any)']                  = 'Operator/UserDosenController/reset/$1';
+
+$route['operator/user-pegawai']                             = 'Operator/UserPegawaiController';
+$route['operator/user-pegawai/create']                      = 'Operator/UserPegawaiController/create';
+$route['operator/user-pegawai/store']                       = 'Operator/UserPegawaiController/store';
+$route['operator/user-pegawai/edit/(:any)']                 = 'Operator/UserPegawaiController/edit/$1';
+$route['operator/user-pegawai/update']                      = 'Operator/UserPegawaiController/update';
+$route['operator/user-pegawai/delete/(:any)']               = 'Operator/UserPegawaiController/delete/$1';
+$route['operator/user-pegawai/reset/(:any)']                = 'Operator/UserPegawaiController/reset/$1';
+
+// ------------------------------------------------------------------------
 // Profile
 // ------------------------------------------------------------------------
 $route['profile/edit']                                      = 'ProfileController/edit';
