@@ -174,6 +174,13 @@ $route['admin/kategori/edit/(:any)']                        = 'Admin/KategoriCon
 $route['admin/kategori/update']                             = 'Admin/KategoriController/update';
 $route['admin/kategori/delete/(:any)']                      = 'Admin/KategoriController/delete/$1';
 
+$route['admin/golongan']                                    = 'Admin/GolonganController';
+$route['admin/golongan/create']                             = 'Admin/GolonganController/create';
+$route['admin/golongan/store']                              = 'Admin/GolonganController/store';
+$route['admin/golongan/edit/(:any)']                        = 'Admin/GolonganController/edit/$1';
+$route['admin/golongan/update']                             = 'Admin/GolonganController/update';
+$route['admin/golongan/delete/(:any)']                      = 'Admin/GolonganController/delete/$1';
+
 // ------------------------------------------------------------------------
 // Dosen
 // ------------------------------------------------------------------------
@@ -192,6 +199,21 @@ $route['dosen/pendidikan/store']                            = 'Dosen/PendidikanC
 $route['dosen/pendidikan/edit/(:any)']                      = 'Dosen/PendidikanController/edit/$1';
 $route['dosen/pendidikan/update']                           = 'Dosen/PendidikanController/update';
 $route['dosen/pendidikan/delete/(:any)']                    = 'Dosen/PendidikanController/delete/$1';
+
+$route['dosen/kepangkatan/data']                            = 'Dosen/KepangkatanController';
+$route['dosen/kepangkatan/data/update']                     = 'Dosen/KepangkatanController/update';
+
+$route['dosen/kepangkatan/doc']                             = 'Dosen/KepangkatanController/doc_index';
+$route['dosen/kepangkatan/doc/create']                      = 'Dosen/KepangkatanController/create';
+$route['dosen/kepangkatan/doc/store']                       = 'Dosen/KepangkatanController/store';
+$route['dosen/kepangkatan/doc/delete/(:any)']               = 'Dosen/KepangkatanController/delete/$1';
+
+$route['dosen/kepangkatan/riwayat']                         = 'Dosen/KepangkatanController/riwayat_index';
+$route['dosen/kepangkatan/riwayat/create']                  = 'Dosen/KepangkatanController/riwayat_create';
+$route['dosen/kepangkatan/riwayat/store']                   = 'Dosen/KepangkatanController/riwayat_store';
+$route['dosen/kepangkatan/riwayat/edit/(:any)']             = 'Dosen/KepangkatanController/riwayat_edit/$1';
+$route['dosen/kepangkatan/riwayat/update']                  = 'Dosen/KepangkatanController/riwayat_update';
+$route['dosen/kepangkatan/riwayat/delete/(:any)']           = 'Dosen/KepangkatanController/riwayat_delete/$1';
 
 $route['dosen/tridharma/pengajaran']                        = 'Dosen/PengajaranController';
 $route['dosen/tridharma/pengajaran/create']                 = 'Dosen/PengajaranController/create';

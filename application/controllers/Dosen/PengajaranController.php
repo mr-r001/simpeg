@@ -51,7 +51,7 @@ class PengajaranController extends CI_Controller
 			$upload_path		= './assets/img/dosen/sk_pengajaran/';
 			$dname 				= explode(".", $_FILES['sk']['name']);
 			$ext 				= end($dname);
-			$file_name_ijazah 	= "sk_" . strtolower($this->session->userdata('nama')) . "." . $ext;
+			$file_name_ijazah 	= "sk_" . rand(100, 10000) . "." . $ext;
 			move_uploaded_file($tmp_name, "$upload_path/$file_name_ijazah");
 		} else {
 			$this->session->set_flashdata('error', 'File terlalu besar');
@@ -109,7 +109,7 @@ class PengajaranController extends CI_Controller
 				$upload_path		= './assets/img/dosen/sk_pengajaran/';
 				$dname 				= explode(".", $_FILES['sk']['name']);
 				$ext 				= end($dname);
-				$file_name_ijazah 	= "sk_" . strtolower($this->session->userdata('nama')) . "." . $ext;
+				$file_name_ijazah 	= rand(100, 10000) . "." . $ext;
 				move_uploaded_file($tmp_name, "$upload_path/$file_name_ijazah");
 
 				$data = array(

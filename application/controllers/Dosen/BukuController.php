@@ -54,7 +54,7 @@ class BukuController extends CI_Controller
 				$upload_path		= './assets/img/dosen/cover_buku/';
 				$dname 				= explode(".", $_FILES['cover']['name']);
 				$ext 				= end($dname);
-				$file_name 	= "cover_" . strtolower($this->session->userdata('nama')) . "." . $ext;
+				$file_name 			= rand(100, 10000) . "." . $ext;
 				move_uploaded_file($tmp_name, "$upload_path/$file_name");
 
 				$data = array(
@@ -123,7 +123,7 @@ class BukuController extends CI_Controller
 					$upload_path		= './assets/img/dosen/cover_buku/';
 					$dname 				= explode(".", $_FILES['cover']['name']);
 					$ext 				= end($dname);
-					$file_name 	= "cover_" . strtolower($this->session->userdata('nama')) . "." . $ext;
+					$file_name 			= rand(100, 10000) . "." . $ext;
 					move_uploaded_file($tmp_name, "$upload_path/$file_name");
 
 					$data = array(

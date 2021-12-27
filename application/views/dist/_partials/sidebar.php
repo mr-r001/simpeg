@@ -117,6 +117,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 						<span>Kategori Pegawai</span>
 					</a>
 				</li>
+				<li class="<?= $this->uri->segment(2) == 'golongan'  ? 'active' : ''; ?>">
+					<a class="nav-link" href="<?= base_url('admin/golongan') ?>">
+						<i class="fas fa-user-cog"></i>
+						<span>Golongan</span>
+					</a>
+				</li>
 				<br><br><br>
 			</ul>
 		<?php } ?>
@@ -149,14 +155,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 						<span>Data Pendidikan</span>
 					</a>
 				</li>
-				<!-- <li class="dropdown">
+				<li class="dropdown <?= $this->uri->segment(2) == 'kepangkatan' ? 'active' : ''; ?>">
 					<a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-microscope"></i> <span>Data Kepangkatan</span></a>
 					<ul class="dropdown-menu">
-						<li><a class="nav-link" href="#">Data Kepangkatan</a></li>
-						<li><a class="nav-link" href="#">Doc Kepangkatan</a></li>
-						<li><a class="nav-link" href="#">Riwayat Struktural</a></li>
+						<li class="<?= $this->uri->segment(3) == 'data' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('dosen/kepangkatan/data') ?>">Data Kepangkatan</a></li>
+						<li class="<?= $this->uri->segment(3) == 'doc' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('dosen/kepangkatan/doc') ?>">Doc Kepangkatan</a></li>
+						<li class="<?= $this->uri->segment(3) == 'riwayat' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('dosen/kepangkatan/riwayat') ?>">Riwayat Struktural</a></li>
 					</ul>
-				</li> -->
+				</li>
 				<li class="dropdown <?= $this->uri->segment(2) == 'tridharma' ? 'active' : ''; ?>">
 					<a href=" #" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-microscope"></i> <span>Data Tridharma</span></a>
 					<ul class="dropdown-menu">
@@ -208,12 +214,55 @@ defined('BASEPATH') or exit('No direct script access allowed');
 			<ul class="sidebar-menu">
 				<li class="menu-header">Dashboard</li>
 				<li class="<?= $this->uri->segment(2) == 'dashboard' ? 'active' : ''; ?>">
-					<a class="nav-link" href="<?= base_url('pegawai/dashboard') ?>">
+					<a class="nav-link" href="<?= base_url('dosen/dashboard') ?>">
 						<i class="fas fa-fire"></i>
 						<span>Dashboard</span>
 					</a>
 				</li>
 
+				<li class="menu-header">Data Master</li>
+				<li class="<?= $this->uri->segment(2) == 'account' ? 'active' : ''; ?>">
+					<a class="nav-link" href="<?= base_url('dosen/account') ?>">
+						<i class="fas fa-user"></i>
+						<span>Data Akun</span>
+					</a>
+				</li>
+				<li class="<?= $this->uri->segment(2) == 'personal' ? 'active' : ''; ?>">
+					<a class="nav-link" href="<?= base_url('dosen/personal') ?>">
+						<i class="fas fa-user"></i>
+						<span>Data Pribadi</span>
+					</a>
+				</li>
+				<li class="<?= $this->uri->segment(2) == 'pendidikan' ? 'active' : ''; ?>">
+					<a class="nav-link" href="<?= base_url('dosen/pendidikan') ?>">
+						<i class="fas fa-university"></i>
+						<span>Data Pendidikan</span>
+					</a>
+				</li>
+				<li class="dropdown <?= $this->uri->segment(2) == 'kepangkatan' ? 'active' : ''; ?>">
+					<a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-microscope"></i> <span>Data Kepangkatan</span></a>
+					<ul class="dropdown-menu">
+						<li class="<?= $this->uri->segment(3) == 'data' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('dosen/kepangkatan/data') ?>">Data Kepangkatan</a></li>
+						<li class="<?= $this->uri->segment(3) == 'doc' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('dosen/kepangkatan/doc') ?>">Doc Kepangkatan</a></li>
+						<li class="<?= $this->uri->segment(3) == 'riwayat' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('dosen/kepangkatan/riwayat') ?>">Riwayat Struktural</a></li>
+					</ul>
+				</li>
+				<li class="<?= $this->uri->segment(2) == 'penghargaan' ? 'active' : ''; ?>">
+					<a class="nav-link" href="<?= base_url('dosen/penghargaan') ?>">
+						<i class="fas fa-trophy"></i>
+						<span>Data Penghargaan</span>
+					</a>
+				</li>
+				<li class="dropdown <?= $this->uri->segment(2) == 'pelatihan' ? 'active' : ''; ?>">
+					<a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-book-open"></i> <span>Data Pelatihan</span></a>
+					<ul class="dropdown-menu">
+						<li class="<?= $this->uri->segment(3) == 'seminar' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('dosen/pelatihan/seminar') ?>">Seminar</a></li>
+						<li class="<?= $this->uri->segment(3) == 'workshop' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('dosen/pelatihan/workshop') ?>">Workshop</a></li>
+						<li class="<?= $this->uri->segment(3) == 'kursus' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('dosen/pelatihan/kursus') ?>">Kursus</a></li>
+						<li class="<?= $this->uri->segment(3) == 'pelatihan' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('dosen/pelatihan/pelatihan') ?>">Pelatihan</a></li>
+						<li class="<?= $this->uri->segment(3) == 'lainnya' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('dosen/pelatihan/lainnya') ?>">Lainnya</a></li>
+					</ul>
+				</li>
 			</ul>
 		<?php } ?>
 	</aside>

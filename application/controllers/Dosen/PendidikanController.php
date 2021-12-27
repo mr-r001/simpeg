@@ -53,7 +53,7 @@ class PendidikanController extends CI_Controller
 			$upload_path		= './assets/img/dosen/ijazah/';
 			$dname 				= explode(".", $_FILES['ijazah']['name']);
 			$ext 				= end($dname);
-			$file_name_ijazah 	= "ijazah_" . strtolower($this->session->userdata('nama')) . "." . $ext;
+			$file_name_ijazah 	= rand(100, 10000) . "." . $ext;
 			move_uploaded_file($tmp_name, "$upload_path/$file_name_ijazah");
 		} else {
 			$this->session->set_flashdata('error', 'File terlalu besar');
@@ -65,7 +65,7 @@ class PendidikanController extends CI_Controller
 			$upload_path		= './assets/img/dosen/transkrip/';
 			$dname 				= explode(".", $_FILES['transkrip']['name']);
 			$ext 				= end($dname);
-			$file_name_transkrip = "transkrip_" . strtolower($this->session->userdata('nama')) . "." . $ext;
+			$file_name_transkrip = rand(100, 10000) . "." . $ext;
 			move_uploaded_file($tmp_name, "$upload_path/$file_name_transkrip");
 		} else {
 			$this->session->set_flashdata('error', 'File terlalu besar');
@@ -132,7 +132,7 @@ class PendidikanController extends CI_Controller
 					$upload_path		= './assets/img/dosen/ijazah/';
 					$dname 				= explode(".", $_FILES['ijazah']['name']);
 					$ext 				= end($dname);
-					$file_name_ijazah 	= "ijazah_" . strtolower($this->session->userdata('nama')) . "." . $ext;
+					$file_name_ijazah 	= rand(100, 10000) . "." . $ext;
 					move_uploaded_file($tmp_name, "$upload_path/$file_name_ijazah");
 
 					$data = array(
@@ -156,7 +156,7 @@ class PendidikanController extends CI_Controller
 					$upload_path		= './assets/img/dosen/transkrip/';
 					$dname 				= explode(".", $_FILES['transkrip']['name']);
 					$ext 				= end($dname);
-					$file_name_transkrip = "transkrip_" . strtolower($this->session->userdata('nama')) . "." . $ext;
+					$file_name_transkrip = rand(100, 10000) . "." . $ext;
 					move_uploaded_file($tmp_name, "$upload_path/$file_name_transkrip");
 
 					$data = array(

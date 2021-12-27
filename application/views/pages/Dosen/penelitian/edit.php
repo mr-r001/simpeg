@@ -56,6 +56,13 @@ $this->load->view('dist/_partials/header', $data);
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label for="publikasi">Publikasi<sup class="text-danger">*</sup></label>
+                                        <input id="publikasi" type="text" class="form-control" name="publikasi" tabindex="1" value="<?= $data->publikasi ?>" required>
+                                        <div class="invalid-feedback">
+                                            Masukkan Publikasi terlebih dahulu
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="doc">Document Penelitian <sup class="text-danger">Max 2Mb</sup></label>
                                         <input id="doc" type="file" class="form-control" name="doc">
                                         <small>*)Kosongkan jika tidak ingin dirubah</small>

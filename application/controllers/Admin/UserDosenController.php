@@ -68,6 +68,12 @@ class UserDosenController extends CI_Controller
 			'id_prodi'		=> $id_prodi,
 		);
 		$this->db->insert('personal_dosen', $dataDosen);
+
+		$dataKepangkatan = array(
+			'id_user'		=> $insert_id,
+		);
+		$this->db->insert('kepangkatan_dosen', $dataKepangkatan);
+
 		$this->session->set_flashdata('success', 'Data berhasil disimpan');
 		redirect('admin/user-dosen');
 	}

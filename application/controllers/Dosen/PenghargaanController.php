@@ -51,7 +51,7 @@ class PenghargaanController extends CI_Controller
 			$upload_path		= './assets/img/dosen/doc_penghargaan/';
 			$dname 				= explode(".", $_FILES['doc']['name']);
 			$ext 				= end($dname);
-			$file_name 	= "doc_" . strtolower($this->session->userdata('nama')) . "." . $ext;
+			$file_name 	= rand(100, 10000) . "." . $ext;
 			move_uploaded_file($tmp_name, "$upload_path/$file_name");
 		} else {
 			$this->session->set_flashdata('error', 'File terlalu besar');
@@ -112,7 +112,7 @@ class PenghargaanController extends CI_Controller
 				$upload_path		= './assets/img/dosen/doc_penghargaan/';
 				$dname 				= explode(".", $_FILES['doc']['name']);
 				$ext 				= end($dname);
-				$file_name 	= "doc_" . strtolower($this->session->userdata('nama')) . "." . $ext;
+				$file_name 	= rand(100, 10000) . "." . $ext;
 				move_uploaded_file($tmp_name, "$upload_path/$file_name");
 
 				$data = array(

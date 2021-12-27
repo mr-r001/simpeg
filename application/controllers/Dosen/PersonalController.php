@@ -78,9 +78,9 @@ class PersonalController extends CI_Controller
 
 			$tmp_name 				= $_FILES['photo']['tmp_name'];
 			$upload_path			= './assets/img/avatar/';
-			$dname = explode(".", $_FILES['photo']['name']);
-			$ext = end($dname);
-			$file_name = rand(0, 1000000);
+			$dname 					= explode(".", $_FILES['photo']['name']);
+			$ext 					= end($dname);
+			$file_name 				= rand(100, 10000) . "." . $ext;;
 			move_uploaded_file($tmp_name, "$upload_path/$file_name.$ext");
 
 
