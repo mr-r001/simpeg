@@ -18,7 +18,7 @@ class UserDosenController extends CI_Controller
 				'title' => "Manage User Dosen"
 			);
 			$data['dosen']	 	= $this->db->query("SELECT *, fakultas.name AS nama_fakultas, users.id AS id_dosen FROM users INNER JOIN fakultas ON users.id_fakultas = fakultas.id INNER JOIN prodi ON users.id_prodi = prodi.id WHERE role = 2")->result();
-			$this->load->view('pages/Admin/user-dosen/index.php', $data);
+			$this->load->view('pages/Operator/user-dosen/index.php', $data);
 		} else {
 			redirect('/');
 		}
@@ -32,7 +32,7 @@ class UserDosenController extends CI_Controller
 			);
 			$data['fakultas'] 	= $this->db->query("SELECT * FROM fakultas")->result();
 			$data['prodi'] 		= $this->db->query("SELECT * FROM prodi")->result();
-			$this->load->view('pages/Admin/user-dosen/add', $data);
+			$this->load->view('pages/Operator/user-dosen/add', $data);
 		} else {
 			redirect('/');
 		}
@@ -75,7 +75,7 @@ class UserDosenController extends CI_Controller
 		$this->db->insert('kepangkatan_dosen', $dataKepangkatan);
 
 		$this->session->set_flashdata('success', 'Data berhasil disimpan');
-		redirect('admin/user-dosen');
+		redirect('operator/user-dosen');
 	}
 
 	public function edit($id)
@@ -88,7 +88,7 @@ class UserDosenController extends CI_Controller
 			$data['dosen'] = $this->db->query("SELECT * FROM users WHERE id='$id'")->result();
 			$data['fakultas'] 	= $this->db->query("SELECT * FROM fakultas")->result();
 			$data['prodi'] 		= $this->db->query("SELECT * FROM prodi")->result();
-			$this->load->view('pages/Admin/user-dosen/edit', $data);
+			$this->load->view('pages/Operator/user-dosen/edit', $data);
 		} else {
 			redirect('/');
 		}
@@ -126,7 +126,7 @@ class UserDosenController extends CI_Controller
 		$where = array('id_user' => $id);
 		$this->db->update('personal_dosen', $dataDosen, $where);
 		$this->session->set_flashdata('success', 'Data berhasil diubah');
-		redirect('admin/user-dosen');
+		redirect('operator/user-dosen');
 	}
 
 	public function delete($id)
@@ -149,7 +149,7 @@ class UserDosenController extends CI_Controller
 		$this->db->delete('users', $where);
 
 		$this->session->set_flashdata('success', 'Data berhasil dihapus');
-		redirect('admin/user-dosen');
+		redirect('operator/user-dosen');
 	}
 
 	public function reset($id)
@@ -168,6 +168,6 @@ class UserDosenController extends CI_Controller
 		$this->db->update('users', $data, $where);
 
 		$this->session->set_flashdata('success', 'Password berhasil direset');
-		redirect('admin/user-dosen');
+		redirect('operator/user-dosen');
 	}
 }

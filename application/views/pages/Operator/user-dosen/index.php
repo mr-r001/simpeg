@@ -9,7 +9,7 @@ $this->load->view('dist/_partials/header', $data);
 		<div class="section-header">
 			<h1>Manage User Dosen</h1>
 			<div class="section-header-breadcrumb">
-				<div class="breadcrumb-item active"><a href="<?= base_url('admin/dashboard') ?>">Dashboard</a></div>
+				<div class="breadcrumb-item active"><a href="<?= base_url('operator/dashboard') ?>">Dashboard</a></div>
 				<div class="breadcrumb-item">Manage User Dosen</div>
 			</div>
 		</div>
@@ -24,7 +24,7 @@ $this->load->view('dist/_partials/header', $data);
 			</div>
 		<?php } ?>
 		<div class="section-body">
-			<a href="<?= base_url('admin/user-dosen/create') ?>" class="btn btn-primary btn-s"><i class="fa fa-plus"></i> Tambah Data</a><br><br>
+			<a href="<?= base_url('operator/user-dosen/create') ?>" class="btn btn-primary btn-s"><i class="fa fa-plus"></i> Tambah Data</a><br><br>
 			<div class="row">
 				<div class="col-12">
 					<div class="card">
@@ -54,9 +54,9 @@ $this->load->view('dist/_partials/header', $data);
 												<td><?= $data->nama_fakultas ?></td>
 												<td><?= $data->nama_prodi ?></td>
 												<td>
-													<a href="<?php echo base_url('admin/user-dosen/edit/') . $data->id_dosen ?>" class="btn btn-success" title="Edit"><i class="fa fa-edit"></i> </a>
-													<a href="<?php echo base_url('admin/user-dosen/delete/') . $data->id_dosen ?>" class="btn btn-danger" onclick="javascript: return confirm('Are you sure want to Delete ?')" title="Delete"><i class="fa fa-trash"></i></a>
-													<a href="<?php echo base_url('admin/user-dosen/reset/') . $data->id_dosen ?>" class="btn btn-primary" onclick="javascript: return confirm('Are you sure want to Reset ?')" title="Delete"><i class="fa fa-key"></i></a>
+													<a href="<?php echo base_url('operator/user-dosen/edit/') . $data->id_dosen ?>" class="btn btn-success" title="Edit"><i class="fa fa-edit"></i> </a>
+													<a href="<?php echo base_url('operator/user-dosen/delete/') . $data->id_dosen ?>" class="btn btn-danger" onclick="javascript: return confirm('Are you sure want to Delete ?')" title="Delete"><i class="fa fa-trash"></i></a>
+													<a href="<?php echo base_url('operator/user-dosen/reset/') . $data->id_dosen ?>" class="btn btn-primary" onclick="javascript: return confirm('Are you sure want to Reset ?')" title="Delete"><i class="fa fa-key"></i></a>
 												</td>
 											</tr>
 										<?php endforeach; ?>

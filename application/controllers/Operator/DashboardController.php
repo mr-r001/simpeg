@@ -18,22 +18,15 @@ class DashboardController extends CI_Controller
 			$data = array(
 				'title' => "Dashboard"
 			);
+			$id = $this->session->userdata('id');
+			$user 							= $this->db->query("SELECT * FROM users INNER JOIN prodi ON prodi.id = users.id_prodi WHERE users.id = $id")->result();
 
-			$data['tetap'] 				= $this->db->query("SELECT * FROM personal_dosen WHERE id_dosen=1")->num_rows();
-			$data['tidak_tetap'] 		= $this->db->query("SELECT * FROM personal_dosen WHERE id_dosen=2")->num_rows();
-			$data['sesuai'] 			= $this->db->query("SELECT * FROM personal_dosen WHERE id_dosen_skills=1")->num_rows();
-			$data['tidak_sesuai'] 		= $this->db->query("SELECT * FROM personal_dosen WHERE id_dosen_skills=2")->num_rows();
-			$data['teknisi'] 			= $this->db->query("SELECT * FROM personal_pegawai WHERE id_kategori=5")->num_rows();
-			$data['laboran'] 			= $this->db->query("SELECT * FROM personal_pegawai WHERE id_kategori=6")->num_rows();
-			$data['administrasi'] 		= $this->db->query("SELECT * FROM personal_pegawai WHERE id_kategori=7")->num_rows();
-			$data['arsiparis'] 			= $this->db->query("SELECT * FROM personal_pegawai WHERE id_kategori=8")->num_rows();
+			$prodi							= $user[0]->id_prodi;
+			$data['prodi']					= $user[0]->nama_prodi;
+			$data['dosen'] 					= $this->db->query("SELECT * FROM personal_dosen WHERE id_prodi = $prodi")->num_rows();
+			$data['pegawai'] 				= $this->db->query("SELECT * FROM personal_pegawai WHERE id_prodi = $prodi")->num_rows();
 
-			$data['tetap_sesuai'] 		= $this->db->query("SELECT * FROM personal_dosen WHERE id_dosen=1 AND id_dosen_skills=1")->num_rows();
-			$data['tetap_tidak_sesuai'] = $this->db->query("SELECT * FROM personal_dosen WHERE id_dosen=1 AND id_dosen_skills=2")->num_rows();
-
-			$data['tidak_tetap_sesuai'] = $this->db->query("SELECT * FROM personal_dosen WHERE id_dosen=2 AND id_dosen_skills=1")->num_rows();
-			$data['tidak_tetap_tidak_sesuai'] = $this->db->query("SELECT * FROM personal_dosen WHERE id_dosen=2 AND id_dosen_skills=2")->num_rows();
-			$this->load->view('pages/Admin/dashboard/index.php', $data);
+			$this->load->view('pages/Operator/dashboard/index.php', $data);
 		} else {
 			redirect('/');
 		}

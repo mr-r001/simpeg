@@ -18,7 +18,7 @@ $this->load->view('dist/_partials/header', $data);
                         </div>
                         <div class="card-body">
                             <?php foreach ($pegawai as $data) : ?>
-                                <form method="post" class="needs-validation" action="<?php echo site_url('admin/user-pegawai/update') ?>" novalidate="">
+                                <form method="post" class="needs-validation" action="<?php echo site_url('operator/user-pegawai/update') ?>" novalidate="">
                                     <input type="hidden" name="id" value="<?= $data->id ?>">
                                     <div class="form-group">
                                         <label for="nip">NIP<sup class="text-danger">*</sup></label>

@@ -80,8 +80,8 @@ class PersonalController extends CI_Controller
 			$upload_path			= './assets/img/avatar/';
 			$dname 					= explode(".", $_FILES['photo']['name']);
 			$ext 					= end($dname);
-			$file_name 				= rand(100, 10000) . "." . $ext;;
-			move_uploaded_file($tmp_name, "$upload_path/$file_name.$ext");
+			$file_name 				= rand(100, 10000) . "." . $ext;
+			move_uploaded_file($tmp_name, "$upload_path/$file_name");
 
 
 			$data = array(
@@ -99,7 +99,7 @@ class PersonalController extends CI_Controller
 				'id_kategori' 	=> $id_kategori,
 				'id_fakultas'	=> $id_fakultas,
 				'id_prodi'		=> $id_prodi,
-				'foto'			=> $file_name . "." . $ext
+				'foto'			=> $file_name
 			);
 			$where = array('id' => $id);
 			$this->db->update('personal_pegawai', $data, $where);

@@ -18,21 +18,14 @@ class DashboardController extends CI_Controller
 			$data = array(
 				'title' => "Dashboard"
 			);
-			$id = $this->session->userdata('id');
-			$data['tetap'] 				= $this->db->query("SELECT * FROM personal_dosen WHERE id_dosen=1")->num_rows();
-			$data['tidak_tetap'] 		= $this->db->query("SELECT * FROM personal_dosen WHERE id_dosen=2")->num_rows();
-			$data['sesuai'] 			= $this->db->query("SELECT * FROM personal_dosen WHERE id_dosen_skills=1")->num_rows();
-			$data['tidak_sesuai'] 		= $this->db->query("SELECT * FROM personal_dosen WHERE id_dosen_skills=2")->num_rows();
-			$data['teknisi'] 			= $this->db->query("SELECT * FROM personal_pegawai WHERE id_kategori=5")->num_rows();
-			$data['laboran'] 			= $this->db->query("SELECT * FROM personal_pegawai WHERE id_kategori=6")->num_rows();
-			$data['administrasi'] 		= $this->db->query("SELECT * FROM personal_pegawai WHERE id_kategori=7")->num_rows();
-			$data['arsiparis'] 			= $this->db->query("SELECT * FROM personal_pegawai WHERE id_kategori=8")->num_rows();
+			$id		= $this->session->userdata('id');
 
-			$data['tetap_sesuai'] 		= $this->db->query("SELECT * FROM personal_dosen WHERE id_dosen=1 AND id_dosen_skills=1")->num_rows();
-			$data['tetap_tidak_sesuai'] = $this->db->query("SELECT * FROM personal_dosen WHERE id_dosen=1 AND id_dosen_skills=2")->num_rows();
+			$data['pribadi'] 			= $this->db->query("SELECT * FROM personal_pegawai INNER JOIN users ON users.id = personal_pegawai.id_user  INNER JOIN fakultas ON personal_pegawai.id_fakultas = fakultas.id INNER JOIN prodi ON personal_pegawai.id_prodi = prodi.id  WHERE id_user = $id")->result();
 
-			$data['tidak_tetap_sesuai'] = $this->db->query("SELECT * FROM personal_dosen WHERE id_dosen=2 AND id_dosen_skills=1")->num_rows();
-			$data['tidak_tetap_tidak_sesuai'] = $this->db->query("SELECT * FROM personal_dosen WHERE id_dosen=2 AND id_dosen_skills=2")->num_rows();
+			$data['pendidikan']	 	= $this->db->query("SELECT *, pendidikan_pegawai.id as id  FROM pendidikan_pegawai INNER JOIN jenjang_pendidikan ON pendidikan_pegawai.id_pendidikan = jenjang_pendidikan.id WHERE id_user = $id")->result();
+
+			$data['kepangkatan']	 	= $this->db->query("SELECT *, golongan.name as golname, kategori.name as katname FROM kepangkatan_pegawai INNER JOIN golongan ON golongan.id = kepangkatan_pegawai.id_golongan INNER JOIN kategori ON kategori.id = kepangkatan_pegawai.id_kategori WHERE id_user = $id")->result();
+
 			$this->load->view('pages/Pegawai/dashboard/index.php', $data);
 		} else {
 			redirect('/');

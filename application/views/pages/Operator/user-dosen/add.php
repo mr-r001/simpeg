@@ -17,7 +17,7 @@ $this->load->view('dist/_partials/header', $data);
                             <h4>Isi Data</h4>
                         </div>
                         <div class="card-body">
-                            <form method="post" class="needs-validation" action="<?php echo site_url('admin/user-dosen/store') ?>" novalidate="">
+                            <form method="post" class="needs-validation" action="<?php echo site_url('operator/user-dosen/store') ?>" novalidate="">
                                 <div class="form-group">
                                     <label for="nip">NIP<sup class="text-danger">*</sup></label>
                                     <input id="nip" type="text" class="form-control" name="nip" tabindex="1" placeholder="Masukkan NIP" required autofocus>

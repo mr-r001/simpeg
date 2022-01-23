@@ -18,7 +18,7 @@ class UserPegawaiController extends CI_Controller
 				'title' => "Manage User Pegawai"
 			);
 			$data['pegawai']	 	= $this->db->query("SELECT * FROM users WHERE role = 3")->result();
-			$this->load->view('pages/Admin/user-pegawai/index.php', $data);
+			$this->load->view('pages/Operator/user-pegawai/index.php', $data);
 		} else {
 			redirect('/');
 		}
@@ -30,7 +30,7 @@ class UserPegawaiController extends CI_Controller
 			$data = array(
 				'title' => "Manage User pegawai"
 			);
-			$this->load->view('pages/Admin/user-pegawai/add', $data);
+			$this->load->view('pages/Operator/user-pegawai/add', $data);
 		} else {
 			redirect('/');
 		}
@@ -67,7 +67,7 @@ class UserPegawaiController extends CI_Controller
 		$this->db->insert('kepangkatan_pegawai', $dataKepangkatan);
 
 		$this->session->set_flashdata('success', 'Data berhasil disimpan');
-		redirect('admin/user-pegawai');
+		redirect('operator/user-pegawai');
 	}
 
 	public function edit($id)
@@ -78,7 +78,7 @@ class UserPegawaiController extends CI_Controller
 			);
 			$where = array('id' => $id);
 			$data['pegawai'] = $this->db->query("SELECT * FROM users WHERE id='$id'")->result();
-			$this->load->view('pages/Admin/user-pegawai/edit', $data);
+			$this->load->view('pages/Operator/user-pegawai/edit', $data);
 		} else {
 			redirect('/');
 		}
@@ -103,7 +103,7 @@ class UserPegawaiController extends CI_Controller
 		$where = array('id' => $id);
 		$this->db->update('users', $data, $where);
 		$this->session->set_flashdata('success', 'Data berhasil diubah');
-		redirect('admin/user-pegawai');
+		redirect('operator/user-pegawai');
 	}
 
 	public function delete($id)
@@ -122,7 +122,7 @@ class UserPegawaiController extends CI_Controller
 		$where = array('id' => $id);
 		$this->db->delete('users', $where);
 		$this->session->set_flashdata('success', 'Data berhasil dihapus');
-		redirect('admin/user-pegawai');
+		redirect('operator/user-pegawai');
 	}
 
 	public function reset($id)
@@ -141,6 +141,6 @@ class UserPegawaiController extends CI_Controller
 		$this->db->update('users', $data, $where);
 
 		$this->session->set_flashdata('success', 'Password berhasil direset');
-		redirect('admin/user-pegawai');
+		redirect('operator/user-pegawai');
 	}
 }

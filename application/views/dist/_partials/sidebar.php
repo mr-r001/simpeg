@@ -286,10 +286,55 @@ defined('BASEPATH') or exit('No direct script access allowed');
 					</a>
 				</li>
 				<li class="menu-header">Report</li>
-				<li class="<?= $this->uri->segment(2) == 'user-dosen' ? 'active' : ''; ?>">
-					<a class="nav-link" href="<?= base_url('operator/user-dosen') ?>">
+				<li class="dropdown <?= $this->uri->segment(2) == 'laporan' ? 'active' : ''; ?>">
+					<a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file"></i> <span>Laporan Cetak</span></a>
+					<ul class="dropdown-menu">
+						<li class=""><a class="nav-link" href="#">Data Dosen</a></li>
+					</ul>
+					<ul class="dropdown-menu">
+						<li class=""><a class="nav-link" href="#">Data Pegawai</a></li>
+					</ul>
+				</li>
+				<li class="<?= $this->uri->segment(2) == 'laporan' ? 'active' : ''; ?>">
+					<a class="nav-link" href="<?= base_url('operator/laporan') ?>">
 						<i class="fas fa-file"></i>
-						<span>Laporan</span>
+						<span>Laporan Persentase</span>
+					</a>
+				</li>
+				<li class="<?= $this->uri->segment(2) == 'laporan' ? 'active' : ''; ?>">
+					<a class="nav-link" href="<?= base_url('operator/laporan') ?>">
+						<i class="fas fa-file"></i>
+						<span>Laporan Penelitian Dosen</span>
+					</a>
+				</li>
+				<li class="<?= $this->uri->segment(2) == 'laporan' ? 'active' : ''; ?>">
+					<a class="nav-link" href="<?= base_url('operator/laporan') ?>">
+						<i class="fas fa-file"></i>
+						<span>Laporan Pengabdian Dosen</span>
+					</a>
+				</li>
+				<li class="<?= $this->uri->segment(2) == 'laporan' ? 'active' : ''; ?>">
+					<a class="nav-link" href="<?= base_url('operator/laporan') ?>">
+						<i class="fas fa-file"></i>
+						<span>Laporan Data Penunjang Dosen</span>
+					</a>
+				</li>
+				<li class="<?= $this->uri->segment(2) == 'laporan' ? 'active' : ''; ?>">
+					<a class="nav-link" href="<?= base_url('operator/laporan') ?>">
+						<i class="fas fa-file"></i>
+						<span>Laporan Data Pelatihan Dosen</span>
+					</a>
+				</li>
+				<li class="<?= $this->uri->segment(2) == 'laporan' ? 'active' : ''; ?>">
+					<a class="nav-link" href="<?= base_url('operator/laporan') ?>">
+						<i class="fas fa-file"></i>
+						<span>Laporan Data Penghargaan Pegawai</span>
+					</a>
+				</li>
+				<li class="<?= $this->uri->segment(2) == 'laporan' ? 'active' : ''; ?>">
+					<a class="nav-link" href="<?= base_url('operator/laporan') ?>">
+						<i class="fas fa-file"></i>
+						<span>Laporan Data Pelatihan Pegawai</span>
 					</a>
 				</li>
 			</ul>

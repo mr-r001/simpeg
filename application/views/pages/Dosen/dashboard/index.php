@@ -10,121 +10,230 @@ $this->load->view('dist/_partials/header', $data);
         <div class="section-header">
             <h1>Dashboard</h1>
         </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <div class="card card-statistic-1">
-                    <div class="card-icon bg-primary">
-                        <i class="far fa-user"></i>
-                    </div>
-                    <div class="card-wrap">
+
+        <div class="section-body">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="card">
                         <div class="card-header">
-                            <h4>Dosen Tetap</h4>
+                            <h4>Resume Dosen</h4>
                         </div>
                         <div class="card-body">
-                            <?= $tetap ?>
+                            <ul class="nav nav-pills" id="myTab3" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab3" data-toggle="tab" href="#home3" role="tab" aria-controls="home" aria-selected="true">Data Pribadi</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab3" data-toggle="tab" href="#profile3" role="tab" aria-controls="profile" aria-selected="false">Pendidikan</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="contact-tab3" data-toggle="tab" href="#contact3" role="tab" aria-controls="contact" aria-selected="false">Kepangkatan</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent2">
+                                <div class="tab-pane fade show active" id="home3" role="tabpanel" aria-labelledby="home-tab3">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <ul class="list-group">
+                                                        <?php foreach ($pribadi as $data) { ?>
+                                                            <li class="list-group-item" style="display: flex; justify-content: space-between;">
+                                                                <span>
+                                                                    NIP
+                                                                </span>
+                                                                <span>
+                                                                    <?= $data->nip ?>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item" style="display: flex; justify-content: space-between;">
+                                                                <span>
+                                                                    Nama Lengkap
+                                                                </span>
+                                                                <span>
+                                                                    <?= $data->nama ?>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item" style="display: flex; justify-content: space-between;">
+                                                                <span>
+                                                                    Program Studi
+                                                                </span>
+                                                                <span>
+                                                                    <?= $data->nama_prodi ?>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item" style="display: flex; justify-content: space-between;">
+                                                                <span>
+                                                                    Fakultas
+                                                                </span>
+                                                                <span>
+                                                                    <?= $data->name ?>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item" style="display: flex; justify-content: space-between;">
+                                                                <span>
+                                                                    Email Aktif
+                                                                </span>
+                                                                <span>
+                                                                    <?= $data->email ?>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item" style="display: flex; justify-content: space-between;">
+                                                                <span>
+                                                                    Email Institusi
+                                                                </span>
+                                                                <span>
+                                                                    <?= $data->email_institusi ?>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item">
+                                                                Foto
+                                                            </li>
+                                                            <li class="list-group-item">
+                                                                <img alt="image" src="<?php echo base_url('assets/img/avatar/') . $data->foto ?>" width="100" height="100">
+                                                            </li>
+                                                        <?php } ?>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="profile3" role="tabpanel" aria-labelledby="profile-tab3">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-striped" id="example">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="text-center">
+                                                                        #
+                                                                    </th>
+                                                                    <th>Jenjang Pendidikan</th>
+                                                                    <th>Nama Perguruan Tinggi</th>
+                                                                    <th>Tahun Lulus</th>
+                                                                    <th>Judul TA/Skripsi/Thesis</th>
+                                                                    <th>IPK</th>
+                                                                    <th>Ijazah</th>
+                                                                    <th>Transkrip Nilai</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php
+                                                                $no = 1;
+                                                                foreach ($pendidikan as $data) : ?>
+                                                                    <tr>
+                                                                        <td><?= $no++ ?></td>
+                                                                        <td><?= $data->jenjang_pendidikan ?></td>
+                                                                        <td><?= $data->nama_pt ?></td>
+                                                                        <td><?= $data->tahun ?></td>
+                                                                        <td><?= $data->judul_ta ?></td>
+                                                                        <td><?= $data->ipk ?></td>
+                                                                        <td>
+                                                                            <a href="<?= base_url('assets/img/dosen/ijazah/') . $data->ijazah ?>" download class="btn btn-primary">Download</a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="<?= base_url('assets/img/dosen/transkrip/') . $data->transkrip ?>" download class="btn btn-primary">Download</a>
+                                                                        </td>
+                                                                    </tr>
+                                                                <?php endforeach; ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="contact3" role="tabpanel" aria-labelledby="contact-tab3">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <ul class="list-group">
+                                                        <?php if (empty($kepangkatan)) { ?>
+                                                            <li class="list-group-item" style="display: flex; justify-content: center;">
+                                                                <span>
+                                                                    Mohon lengkap data kepangkatan terlebih dulu
+                                                                </span>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php foreach ($kepangkatan as $data) { ?>
+                                                            <li class="list-group-item" style="display: flex; justify-content: space-between;">
+                                                                <span>
+                                                                    NIDN
+                                                                </span>
+                                                                <span>
+                                                                    <?= $data->nidn ?>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item" style="display: flex; justify-content: space-between;">
+                                                                <span>
+                                                                    No. Kartu Pegawai
+                                                                </span>
+                                                                <span>
+                                                                    <?= $data->no_karpeg ?>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item" style="display: flex; justify-content: space-between;">
+                                                                <span>
+                                                                    Status Serdos
+                                                                </span>
+                                                                <span>
+                                                                    <?= $data->status ?>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item" style="display: flex; justify-content: space-between;">
+                                                                <span>
+                                                                    TMT PNS
+                                                                </span>
+                                                                <span>
+                                                                    <?= $data->tmt_pns ?>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item" style="display: flex; justify-content: space-between;">
+                                                                <span>
+                                                                    Golongan
+                                                                </span>
+                                                                <span>
+                                                                    <?= $data->name ?>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item" style="display: flex; justify-content: space-between;">
+                                                                <span>
+                                                                    TMT Golongan
+                                                                </span>
+                                                                <span>
+                                                                    <?= $data->tmt_golongan ?>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item" style="display: flex; justify-content: space-between;">
+                                                                <span>
+                                                                    Jabatan Fungsional
+                                                                </span>
+                                                                <span>
+                                                                    <?= $data->jabatan ?>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item" style="display: flex; justify-content: space-between;">
+                                                                <span>
+                                                                    TMT Jabatan Fungsional
+                                                                </span>
+                                                                <span>
+                                                                    <?= $data->tmt_jabatan ?>
+                                                                </span>
+                                                            </li>
+                                                        <?php } ?>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="far fa-newspaper"></i>
-                    </div>
-                    <div class="card-wrap">
-                        <div class="card-header">
-                            <h4>Dosen Tidak Tetap</h4>
-                        </div>
-                        <div class="card-body">
-                            <?= $tidak_tetap ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <div class="card card-statistic-1">
-                    <div class="card-icon bg-warning">
-                        <i class="far fa-file"></i>
-                    </div>
-                    <div class="card-wrap">
-                        <div class="card-header">
-                            <h4>Dosen Sesuai Bidang</h4>
-                        </div>
-                        <div class="card-body">
-                            <?= $sesuai ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <div class="card card-statistic-1">
-                    <div class="card-icon bg-success">
-                        <i class="fas fa-circle"></i>
-                    </div>
-                    <div class="card-wrap">
-                        <div class="card-header">
-                            <h4>Dosen Tidak Sesuai Bidang</h4>
-                        </div>
-                        <div class="card-body">
-                            <?= $tidak_sesuai ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-12 col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Jumlah Pegawai berdasarkan Kategori Tendik</h4>
-                    </div>
-                    <div class="card-body">
-                        <canvas id="myChart" height="150"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6 col-md-12 col-12 col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Persentasi dosen tetap : tidak tetap</h4>
-                    </div>
-                    <div class="card-body">
-                        <canvas id="percent_dosen_tetap" height="150"></canvas>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-12 col-12 col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Persentasi dosen sesuai bidang : tidak sesuai bidang</h4>
-                    </div>
-                    <div class="card-body">
-                        <canvas id="percent_dosen_bidang" height="150"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6 col-md-12 col-12 col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Persentasi dosen tetap sesuai bidang : dosen tetap tidak sesuai bidang</h4>
-                    </div>
-                    <div class="card-body">
-                        <canvas id="percent_dosen_tetap_sesuai" height="150"></canvas>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-12 col-12 col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Persentasi dosen tidak tetap sesuai bidang : dosen tidak tetap tidak sesuai bidang
-                        </h4>
-                    </div>
-                    <div class="card-body">
-                        <canvas id="percent_dosen_tidak_bidang" height="150"></canvas>
                     </div>
                 </div>
             </div>
@@ -132,230 +241,5 @@ $this->load->view('dist/_partials/header', $data);
     </section>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
-<script>
-    const teknisi = <?php echo $teknisi ?>;
-    const laboran = <?php echo $laboran ?>;
-    const administrasi = <?php echo $administrasi ?>;
-    const arsiparis = <?php echo $arsiparis ?>;
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Laboran', 'Administrasi', 'Teknisi', 'Arsiparis'],
-            datasets: [{
-                label: 'Kategori',
-                data: [teknisi, laboran, administrasi, arsiparis],
-                backgroundColor: [
-                    'rgb(103,119,238)',
-                    'rgb(252,84,74)',
-                    'rgb(255,164,37)',
-                    'rgb(99,237,122)',
-                ],
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-</script>
-
-<script>
-    const percent_tetap = <?php echo $tetap ?>;
-    const percent_tidak_tetap = <?php echo $tidak_tetap ?>;
-    var data = [{
-        data: [percent_tetap, percent_tidak_tetap],
-        labels: ["Dosen Tetap", "Dosen Tidak Tetap"],
-        backgroundColor: [
-            "#4b77a9",
-            "#5f255f",
-        ],
-        borderColor: "#fff"
-    }];
-
-    var options = {
-        tooltips: {
-            enabled: false
-        },
-        plugins: {
-            datalabels: {
-                formatter: (value, categories) => {
-
-                    let sum = 0;
-                    let dataArr = categories.chart.data.datasets[0].data;
-                    dataArr.map(data => {
-                        sum += data;
-                    });
-                    let percentage = (value * 100 / sum).toFixed(2) + "%";
-                    return percentage;
-
-
-                },
-                color: '#fff',
-            }
-        }
-    };
-
-
-    var percentDosen = document.getElementById('percent_dosen_tetap').getContext('2d');
-    var myChartPercent = new Chart(percentDosen, {
-        type: 'pie',
-        data: {
-            labels: ["Dosen Tetap", "Dosen Tidak Tetap"],
-            datasets: data
-        },
-        options: options
-    });
-</script>
-
-<script>
-    const percent_sesuai = <?php echo $sesuai ?>;
-    const percent_tidak_sesuai = <?php echo $tidak_sesuai ?>;
-    var data = [{
-        data: [percent_sesuai, percent_tidak_sesuai],
-        labels: ["Dosen Sesuai Bidang", "Dosen Tidak Sesuai Bidang"],
-        backgroundColor: [
-            "#4b77a9",
-            "#5f255f",
-        ],
-        borderColor: "#fff"
-    }];
-
-    var options = {
-        tooltips: {
-            enabled: false
-        },
-        plugins: {
-            datalabels: {
-                formatter: (value, categories) => {
-
-                    let sum = 0;
-                    let dataArr = categories.chart.data.datasets[0].data;
-                    dataArr.map(data => {
-                        sum += data;
-                    });
-                    let percentage = (value * 100 / sum).toFixed(2) + "%";
-                    return percentage;
-
-
-                },
-                color: '#fff',
-            }
-        }
-    };
-
-
-    var percentBidang = document.getElementById('percent_dosen_bidang').getContext('2d');
-    var myChartBidang = new Chart(percentBidang, {
-        type: 'pie',
-        data: {
-            labels: ["Dosen Sesuai Bidang", "Dosen Tidak Sesuai Bidang"],
-            datasets: data
-        },
-        options: options
-    });
-</script>
-
-<script>
-    const percent_tetap_sesuai = <?php echo $tetap_sesuai ?>;
-    const percent_tetap_tidak_sesuai = <?php echo $tetap_tidak_sesuai ?>;
-    var data = [{
-        data: [percent_tetap_sesuai, percent_tetap_tidak_sesuai],
-        labels: ["Dosen Tetap Sesuai Bidang", "Dosen Tetap Tidak Sesuai Bidang"],
-        backgroundColor: [
-            "#4b77a9",
-            "#5f255f",
-        ],
-        borderColor: "#fff"
-    }];
-
-    var options = {
-        tooltips: {
-            enabled: false
-        },
-        plugins: {
-            datalabels: {
-                formatter: (value, categories) => {
-
-                    let sum = 0;
-                    let dataArr = categories.chart.data.datasets[0].data;
-                    dataArr.map(data => {
-                        sum += data;
-                    });
-                    let percentage = (value * 100 / sum).toFixed(2) + "%";
-                    return percentage;
-
-
-                },
-                color: '#fff',
-            }
-        }
-    };
-
-
-    var percentTetapBidang = document.getElementById('percent_dosen_tetap_sesuai').getContext('2d');
-    var myChartTetapBidang = new Chart(percentTetapBidang, {
-        type: 'pie',
-        data: {
-            labels: ["Dosen Tetap Sesuai Bidang", "Dosen Tetap Tidak Sesuai Bidang"],
-            datasets: data
-        },
-        options: options
-    });
-</script>
-
-<script>
-    const percent_tidak_tetap_sesuai = <?php echo $tidak_tetap_sesuai ?>;
-    const percent_tidak_tetap_tidak_sesuai = <?php echo $tidak_tetap_tidak_sesuai ?>;
-    var data = [{
-        data: [percent_tidak_tetap_sesuai, percent_tidak_tetap_tidak_sesuai],
-        labels: ["Dosen Tidak Tetap Sesuai Bidang", "Dosen Tidak Tetap Tidak Sesuai Bidang"],
-        backgroundColor: [
-            "#4b77a9",
-            "#5f255f",
-        ],
-        borderColor: "#fff"
-    }];
-
-    var options = {
-        tooltips: {
-            enabled: false
-        },
-        plugins: {
-            datalabels: {
-                formatter: (value, categories) => {
-
-                    let sum = 0;
-                    let dataArr = categories.chart.data.datasets[0].data;
-                    dataArr.map(data => {
-                        sum += data;
-                    });
-                    let percentage = (value * 100 / sum).toFixed(2) + "%";
-                    return percentage;
-
-
-                },
-                color: '#fff',
-            }
-        },
-    };
-
-
-    var percentTidakTetapBidang = document.getElementById('percent_dosen_tidak_bidang').getContext('2d');
-    var myChartTidakTetapBidang = new Chart(percentTidakTetapBidang, {
-        type: 'pie',
-        data: {
-            labels: ["Dosen Tidak Tetap Sesuai Bidang", "Dosen Tidak Tetap Tidak Sesuai Bidang"],
-            datasets: data
-        },
-        options: options
-    });
-</script>
 
 <?php $this->load->view('dist/_partials/footer'); ?>
