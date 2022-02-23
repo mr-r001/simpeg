@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 27 Des 2021 pada 12.59
+-- Waktu pembuatan: 23 Feb 2022 pada 09.33
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 7.3.28
 
@@ -38,6 +38,13 @@ CREATE TABLE `buku_dosen` (
   `cover` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `buku_dosen`
+--
+
+INSERT INTO `buku_dosen` (`id`, `id_user`, `judul`, `id_tingkatan`, `isbn`, `penerbit`, `tahun`, `cover`) VALUES
+(2, 57, 'Tumbaz', 1, '8748436578', 'Ryan', '2021', '4590.png');
+
 -- --------------------------------------------------------
 
 --
@@ -71,8 +78,8 @@ CREATE TABLE `dosen` (
 --
 
 INSERT INTO `dosen` (`id`, `status_dosen`) VALUES
-(11, 'Tetap'),
-(12, 'Tidak Tetap');
+(1, 'Tetap'),
+(2, 'Tidak Tetap');
 
 -- --------------------------------------------------------
 
@@ -90,8 +97,8 @@ CREATE TABLE `dosen_skills` (
 --
 
 INSERT INTO `dosen_skills` (`id`, `status`) VALUES
-(13, 'Ya'),
-(14, 'Tidak');
+(1, 'Ya'),
+(2, 'Tidak');
 
 -- --------------------------------------------------------
 
@@ -110,7 +117,8 @@ CREATE TABLE `fakultas` (
 --
 
 INSERT INTO `fakultas` (`id`, `code`, `name`) VALUES
-(2, 'SI001', 'Sistem informasi');
+(2, 'SI001', 'Sistem informasi'),
+(3, 'TI001', 'Teknik Informatika');
 
 -- --------------------------------------------------------
 
@@ -260,6 +268,14 @@ CREATE TABLE `kepangkatan_dosen` (
   `tmt_jabatan` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `kepangkatan_dosen`
+--
+
+INSERT INTO `kepangkatan_dosen` (`id`, `id_user`, `nidn`, `no_karpeg`, `status`, `nomor_serdos`, `tmt_pns`, `id_golongan`, `tmt_golongan`, `jabatan`, `tmt_jabatan`) VALUES
+(6, 57, '657864', '78594', 'Ya', '757984', '2022-01-03', 11, '2022-01-19', 'Programmer', '2022-01-05'),
+(7, 59, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -283,7 +299,8 @@ CREATE TABLE `kepangkatan_pegawai` (
 --
 
 INSERT INTO `kepangkatan_pegawai` (`id`, `id_user`, `no_karpeg`, `tmt_pns`, `id_golongan`, `tmt_golongan`, `jabatan`, `tmt_jabatan`, `id_kategori`) VALUES
-(7, 55, '78594', '2021-12-15', 10, '2021-12-06', 'Programmer', '2021-12-02', 5);
+(7, 55, '78594', '2021-12-15', 10, '2021-12-06', 'Programmer', '2021-12-02', 5),
+(8, 58, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -380,11 +397,18 @@ CREATE TABLE `nonprofesi_dosen` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `nama` varchar(50) NOT NULL,
-  `tahun` varchar(5) NOT NULL,
+  `tahun` year(4) NOT NULL,
   `penyelenggara` varchar(50) NOT NULL,
   `periode` varchar(5) NOT NULL,
   `doc` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `nonprofesi_dosen`
+--
+
+INSERT INTO `nonprofesi_dosen` (`id`, `id_user`, `nama`, `tahun`, `penyelenggara`, `periode`, `doc`) VALUES
+(2, 57, 'Ryan', 2021, 'Ryan', '2020', '3164.png');
 
 -- --------------------------------------------------------
 
@@ -397,10 +421,17 @@ CREATE TABLE `panitia_dosen` (
   `id_user` int(11) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `id_status` int(50) NOT NULL,
-  `tahun` varchar(5) NOT NULL,
+  `tahun` year(4) NOT NULL,
   `penyelenggara` varchar(50) NOT NULL,
   `doc` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `panitia_dosen`
+--
+
+INSERT INTO `panitia_dosen` (`id`, `id_user`, `nama`, `id_status`, `tahun`, `penyelenggara`, `doc`) VALUES
+(3, 57, 'Kegiatan A', 7, 2021, 'Ryan', '7288.png');
 
 -- --------------------------------------------------------
 
@@ -489,6 +520,13 @@ CREATE TABLE `pemateri_dosen` (
   `doc` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `pemateri_dosen`
+--
+
+INSERT INTO `pemateri_dosen` (`id`, `id_user`, `judul`, `penyelenggara`, `id_pemateri`, `tahun`, `doc`) VALUES
+(2, 57, 'jkjlkjljkjk', 'Ryan', 11, '2021', '8329.png');
+
 -- --------------------------------------------------------
 
 --
@@ -542,6 +580,13 @@ CREATE TABLE `penelitian_dosen` (
   `doc` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `penelitian_dosen`
+--
+
+INSERT INTO `penelitian_dosen` (`id`, `id_user`, `jenis`, `id_tingkatan`, `judul`, `tahun`, `publikasi`, `doc`) VALUES
+(4, 57, 'AB', 1, 'Tumbaz 1', '2011', 'AB', '7104.png');
+
 -- --------------------------------------------------------
 
 --
@@ -558,6 +603,13 @@ CREATE TABLE `pengabdian_dosen` (
   `publikasi` varchar(50) NOT NULL,
   `doc` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `pengabdian_dosen`
+--
+
+INSERT INTO `pengabdian_dosen` (`id`, `id_user`, `judul`, `id_status`, `tahun`, `id_tingkatan`, `publikasi`, `doc`) VALUES
+(2, 57, 'dghjfghjs', 8, '2019', 4, 'AB', '1222.png');
 
 -- --------------------------------------------------------
 
@@ -584,11 +636,18 @@ CREATE TABLE `penghargaan_dosen` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `nama` varchar(50) NOT NULL,
-  `tahun` varchar(5) NOT NULL,
+  `tahun` year(4) NOT NULL,
   `id_tingkatan` int(11) NOT NULL,
   `pemberi` varchar(50) NOT NULL,
   `doc` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `penghargaan_dosen`
+--
+
+INSERT INTO `penghargaan_dosen` (`id`, `id_user`, `nama`, `tahun`, `id_tingkatan`, `pemberi`, `doc`) VALUES
+(3, 57, 'Juara 1', 2019, 5, 'NPIC', '279.png');
 
 -- --------------------------------------------------------
 
@@ -605,6 +664,14 @@ CREATE TABLE `penghargaan_pegawai` (
   `pemberi` varchar(50) NOT NULL,
   `doc` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `penghargaan_pegawai`
+--
+
+INSERT INTO `penghargaan_pegawai` (`id`, `id_user`, `nama`, `tahun`, `id_tingkatan`, `pemberi`, `doc`) VALUES
+(4, 55, 'A', '2011', 1, 'NPIC', '4864.png'),
+(5, 55, 'Ryan', '2021', 1, 'NPIC A', '8813.png');
 
 -- --------------------------------------------------------
 
@@ -631,6 +698,14 @@ CREATE TABLE `personal_dosen` (
   `id_prodi` int(11) DEFAULT NULL,
   `foto` varchar(100) NOT NULL DEFAULT 'default.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `personal_dosen`
+--
+
+INSERT INTO `personal_dosen` (`id`, `id_user`, `nik`, `nama`, `alamat`, `jenis_kelamin`, `tgl_lahir`, `agama`, `no_hp`, `email`, `email_institusi`, `id_pendidikan`, `id_dosen`, `id_dosen_skills`, `id_fakultas`, `id_prodi`, `foto`) VALUES
+(5, 57, 2147483647, 'Ryan Aprianto', 'blok selasa Rt 02 Rw 03, Desa Panjalin Kidul, Kecamatan Sumberjaya', 'L', '2021-12-15', 'Islam', '089639626048', 'administrator@mail.com', 'Ryan@erloom.id', 12, 1, 1, 2, 2, '9551.jpg'),
+(6, 59, NULL, 'Figma', NULL, NULL, '2022-02-17', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 2, 'default.png');
 
 -- --------------------------------------------------------
 
@@ -663,7 +738,8 @@ CREATE TABLE `personal_pegawai` (
 --
 
 INSERT INTO `personal_pegawai` (`id`, `id_user`, `nik`, `nama`, `alamat`, `jenis_kelamin`, `tgl_lahir`, `agama`, `no_hp`, `email`, `email_institusi`, `id_pendidikan`, `id_pegawai`, `id_kategori`, `id_fakultas`, `id_prodi`, `foto`) VALUES
-(9, 55, NULL, 'Ryan Aprianto', NULL, NULL, '2021-12-16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'default.png');
+(9, 55, 2147483647, 'Ryan Aprianto', 'blok selasa Rt 02 Rw 03, Desa Panjalin Kidul, Kecamatan Sumberjaya', 'L', '2021-12-16', 'Islam', '089639626048', 'administrator@mail.com', 'Ryan@erloom.id', 12, 13, 5, 2, 2, '854.jpg'),
+(10, 58, 2147483647, 'Ryan Aprianto', 'Jakarta', 'L', '2022-02-10', 'Islam', '089639626048', 'Ryan.Aprianto77777@gmail.com', 'Ryan.Aprianto77777@gmail.com', 12, 13, 6, 2, 2, 'default.png');
 
 -- --------------------------------------------------------
 
@@ -694,11 +770,18 @@ CREATE TABLE `profesi_dosen` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `nama` varchar(50) NOT NULL,
-  `tahun` varchar(5) NOT NULL,
+  `tahun` year(4) NOT NULL,
   `penyelenggara` varchar(50) NOT NULL,
   `periode` varchar(5) NOT NULL,
   `doc` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `profesi_dosen`
+--
+
+INSERT INTO `profesi_dosen` (`id`, `id_user`, `nama`, `tahun`, `penyelenggara`, `periode`, `doc`) VALUES
+(2, 57, 'Test edit', 2021, 'Ryan', '2020', '2162.png');
 
 -- --------------------------------------------------------
 
@@ -730,6 +813,13 @@ CREATE TABLE `seminar_dosen` (
   `kota` varchar(50) NOT NULL,
   `sertifikat` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `seminar_dosen`
+--
+
+INSERT INTO `seminar_dosen` (`id`, `id_user`, `judul`, `tahun`, `id_tingkatan`, `kota`, `sertifikat`) VALUES
+(3, 57, 'Tumbaz', '2021', 1, 'Cirebon', '8024.png');
 
 -- --------------------------------------------------------
 
@@ -831,8 +921,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `nip`, `nama`, `username`, `password`, `tgl_lahir`, `id_fakultas`, `id_prodi`, `img`, `role`) VALUES
 (35, NULL, 'Superadmin', 'superadmin', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', NULL, NULL, NULL, 'default.png', 1),
-(55, 41170405, 'Ryan Aprianto', NULL, '52a63f2b878b06bf69653149f46b02a9ec301c62', '2021-12-16', NULL, NULL, 'default.png', 3),
-(56, 123456, 'Ryan', NULL, '054acc1187f7506eda2edb9c734a2687cd93b9e2', '2021-12-08', 2, 2, 'default.png', 4);
+(55, 41170405, 'Ryan Aprianto', 'A', '52a63f2b878b06bf69653149f46b02a9ec301c62', '2021-12-16', NULL, NULL, 'default.png', 3),
+(56, 123456, 'Ryan', NULL, '054acc1187f7506eda2edb9c734a2687cd93b9e2', '2021-12-08', 2, 2, 'default.png', 4),
+(57, 41170405, 'Ryan Aprianto', NULL, '14a7c86ddc82442039795af1842493e56051d6ce', '2021-12-15', 2, 2, 'default.png', 2),
+(58, 566766, 'Adcom', NULL, '39794ba330c9d27bcd8ce1229c2645f5f82a3e54', '2022-02-10', NULL, NULL, 'default.png', 3),
+(59, 2345, 'Figma', NULL, 'ea52addb3404b8b141a36f69d387b7e3a1678c96', '2022-02-17', 2, 2, 'default.png', 2);
 
 -- --------------------------------------------------------
 
@@ -849,6 +942,13 @@ CREATE TABLE `workshop_dosen` (
   `kota` varchar(50) NOT NULL,
   `sertifikat` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `workshop_dosen`
+--
+
+INSERT INTO `workshop_dosen` (`id`, `id_user`, `judul`, `tahun`, `id_tingkatan`, `kota`, `sertifikat`) VALUES
+(2, 57, 'Workshop A', '2011', 1, 'Cirebon', '5736.png');
 
 -- --------------------------------------------------------
 
@@ -1218,7 +1318,7 @@ ALTER TABLE `workshop_pegawai`
 -- AUTO_INCREMENT untuk tabel `buku_dosen`
 --
 ALTER TABLE `buku_dosen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `doc_kepangkatan_dosen`
@@ -1242,7 +1342,7 @@ ALTER TABLE `dosen_skills`
 -- AUTO_INCREMENT untuk tabel `fakultas`
 --
 ALTER TABLE `fakultas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `golongan`
@@ -1284,13 +1384,13 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT untuk tabel `kepangkatan_dosen`
 --
 ALTER TABLE `kepangkatan_dosen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `kepangkatan_pegawai`
 --
 ALTER TABLE `kepangkatan_pegawai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `kepanitiaan`
@@ -1326,13 +1426,13 @@ ALTER TABLE `lainnya_pegawai`
 -- AUTO_INCREMENT untuk tabel `nonprofesi_dosen`
 --
 ALTER TABLE `nonprofesi_dosen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `panitia_dosen`
 --
 ALTER TABLE `panitia_dosen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `pegawai`
@@ -1362,7 +1462,7 @@ ALTER TABLE `pemateri`
 -- AUTO_INCREMENT untuk tabel `pemateri_dosen`
 --
 ALTER TABLE `pemateri_dosen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `pendidikan_dosen`
@@ -1380,13 +1480,13 @@ ALTER TABLE `pendidikan_pegawai`
 -- AUTO_INCREMENT untuk tabel `penelitian_dosen`
 --
 ALTER TABLE `penelitian_dosen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengabdian_dosen`
 --
 ALTER TABLE `pengabdian_dosen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengajaran_dosen`
@@ -1398,25 +1498,25 @@ ALTER TABLE `pengajaran_dosen`
 -- AUTO_INCREMENT untuk tabel `penghargaan_dosen`
 --
 ALTER TABLE `penghargaan_dosen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `penghargaan_pegawai`
 --
 ALTER TABLE `penghargaan_pegawai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `personal_dosen`
 --
 ALTER TABLE `personal_dosen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `personal_pegawai`
 --
 ALTER TABLE `personal_pegawai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `prodi`
@@ -1428,7 +1528,7 @@ ALTER TABLE `prodi`
 -- AUTO_INCREMENT untuk tabel `profesi_dosen`
 --
 ALTER TABLE `profesi_dosen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `riwayat_dosen`
@@ -1440,13 +1540,13 @@ ALTER TABLE `riwayat_dosen`
 -- AUTO_INCREMENT untuk tabel `seminar_dosen`
 --
 ALTER TABLE `seminar_dosen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `seminar_pegawai`
 --
 ALTER TABLE `seminar_pegawai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tahun_akademik`
@@ -1470,13 +1570,13 @@ ALTER TABLE `tingkatan`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT untuk tabel `workshop_dosen`
 --
 ALTER TABLE `workshop_dosen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `workshop_pegawai`

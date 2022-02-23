@@ -287,55 +287,37 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				</li>
 				<li class="menu-header">Report</li>
 				<li class="dropdown <?= $this->uri->segment(2) == 'laporan' ? 'active' : ''; ?>">
-					<a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file"></i> <span>Laporan Cetak</span></a>
+					<a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file"></i> <span>Laporan Dosen</span></a>
 					<ul class="dropdown-menu">
-						<li class=""><a class="nav-link" href="#">Data Dosen</a></li>
+						<li class=""><a class="nav-link" href="<?= base_url('operator/report-dosen') ?>">Data Dosen</a></li>
 					</ul>
 					<ul class="dropdown-menu">
-						<li class=""><a class="nav-link" href="#">Data Pegawai</a></li>
+						<li class=""><a class="nav-link" href="<?= base_url('operator/report-penelitian') ?>">Data Penelitian</a></li>
+					</ul>
+					<ul class="dropdown-menu">
+						<li class=""><a class="nav-link" href="<?= base_url('operator/report-pengabdian') ?>">Data Pengabdian</a></li>
+					</ul>
+					<ul class="dropdown-menu">
+						<li class=""><a class="nav-link" href="<?= base_url('operator/report-penunjang') ?>">Data Penunjang</a></li>
+					</ul>
+					<ul class="dropdown-menu">
+						<li class=""><a class="nav-link" href="<?= base_url('operator/report-penghargaan') ?>">Data Penghargaan</a></li>
+					</ul>
+					<ul class="dropdown-menu">
+						<li class=""><a class="nav-link" href="<?= base_url('operator/report-pelatihan') ?>">Data Pelatihan</a></li>
 					</ul>
 				</li>
-				<li class="<?= $this->uri->segment(2) == 'laporan' ? 'active' : ''; ?>">
-					<a class="nav-link" href="<?= base_url('operator/laporan') ?>">
-						<i class="fas fa-file"></i>
-						<span>Laporan Persentase</span>
-					</a>
-				</li>
-				<li class="<?= $this->uri->segment(2) == 'laporan' ? 'active' : ''; ?>">
-					<a class="nav-link" href="<?= base_url('operator/laporan') ?>">
-						<i class="fas fa-file"></i>
-						<span>Laporan Penelitian Dosen</span>
-					</a>
-				</li>
-				<li class="<?= $this->uri->segment(2) == 'laporan' ? 'active' : ''; ?>">
-					<a class="nav-link" href="<?= base_url('operator/laporan') ?>">
-						<i class="fas fa-file"></i>
-						<span>Laporan Pengabdian Dosen</span>
-					</a>
-				</li>
-				<li class="<?= $this->uri->segment(2) == 'laporan' ? 'active' : ''; ?>">
-					<a class="nav-link" href="<?= base_url('operator/laporan') ?>">
-						<i class="fas fa-file"></i>
-						<span>Laporan Data Penunjang Dosen</span>
-					</a>
-				</li>
-				<li class="<?= $this->uri->segment(2) == 'laporan' ? 'active' : ''; ?>">
-					<a class="nav-link" href="<?= base_url('operator/laporan') ?>">
-						<i class="fas fa-file"></i>
-						<span>Laporan Data Pelatihan Dosen</span>
-					</a>
-				</li>
-				<li class="<?= $this->uri->segment(2) == 'laporan' ? 'active' : ''; ?>">
-					<a class="nav-link" href="<?= base_url('operator/laporan') ?>">
-						<i class="fas fa-file"></i>
-						<span>Laporan Data Penghargaan Pegawai</span>
-					</a>
-				</li>
-				<li class="<?= $this->uri->segment(2) == 'laporan' ? 'active' : ''; ?>">
-					<a class="nav-link" href="<?= base_url('operator/laporan') ?>">
-						<i class="fas fa-file"></i>
-						<span>Laporan Data Pelatihan Pegawai</span>
-					</a>
+				<li class="dropdown <?= $this->uri->segment(2) == 'laporan' ? 'active' : ''; ?>">
+					<a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file"></i> <span>Laporan Pegawai</span></a>
+					<ul class="dropdown-menu">
+						<li class=""><a class="nav-link" href="<?= base_url('operator/report-pegawai') ?>">Data Pegawai</a></li>
+					</ul>
+					<ul class="dropdown-menu">
+						<li class=""><a class="nav-link" href="<?= base_url('operator/report-pegawai-penghargaan') ?>">Data Penghargaan</a></li>
+					</ul>
+					<ul class="dropdown-menu">
+						<li class=""><a class="nav-link" href="<?= base_url('operator/report-pelatihan-pegawai') ?>">Data Pelatihan</a></li>
+					</ul>
 				</li>
 			</ul>
 		<?php } ?>

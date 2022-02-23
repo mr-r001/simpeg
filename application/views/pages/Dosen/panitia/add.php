@@ -48,7 +48,7 @@ $this->load->view('dist/_partials/header', $data);
                                 </div>
                                 <div class="form-group">
                                     <label for="tahun">Tahun<sup class="text-danger">*</sup></label>
-                                    <input id="tahun" type="number" class="form-control" name="tahun" tabindex="1" placeholder="Masukkan Tahun" required>
+                                    <input id="tahun" type="number" class="form-control" name="tahun" tabindex="1" placeholder="Masukkan Tahun" required maxlength="4">
                                     <div class="invalid-feedback">
                                         Masukkan Tahun terlebih dahulu
                                     </div>

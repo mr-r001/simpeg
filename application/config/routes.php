@@ -406,6 +406,42 @@ $route['operator/user-pegawai/update']                      = 'Operator/UserPega
 $route['operator/user-pegawai/delete/(:any)']               = 'Operator/UserPegawaiController/delete/$1';
 $route['operator/user-pegawai/reset/(:any)']                = 'Operator/UserPegawaiController/reset/$1';
 
+$route['operator/report-dosen']                             = 'Operator/ReportDosenController';
+$route['operator/report-dosen/filter']                      = 'Operator/ReportDosenController/filter';
+$route['operator/report-dosen/download']                    = 'Operator/ReportDosenController/download';
+
+$route['operator/report-penelitian']                        = 'Operator/ReportPenelitianController';
+$route['operator/report-penelitian/filter']                 = 'Operator/ReportPenelitianController/filter';
+$route['operator/report-penelitian/download']               = 'Operator/ReportPenelitianController/download';
+
+$route['operator/report-pengabdian']                        = 'Operator/ReportPengabdianController';
+$route['operator/report-pengabdian/filter']                 = 'Operator/ReportPengabdianController/filter';
+$route['operator/report-pengabdian/download']               = 'Operator/ReportPengabdianController/download';
+
+$route['operator/report-penunjang']                         = 'Operator/ReportPenunjangController';
+$route['operator/report-penunjang/filter']                  = 'Operator/ReportPenunjangController/filter';
+$route['operator/report-penunjang/download']                = 'Operator/ReportPenunjangController/download';
+
+$route['operator/report-penghargaan']                       = 'Operator/ReportPenghargaanController';
+$route['operator/report-penghargaan/filter']                = 'Operator/ReportPenghargaanController/filter';
+$route['operator/report-penghargaan/download']              = 'Operator/ReportPenghargaanController/download';
+
+$route['operator/report-pelatihan']                         = 'Operator/ReportPelatihanController';
+$route['operator/report-pelatihan/filter']                  = 'Operator/ReportPelatihanController/filter';
+$route['operator/report-pelatihan/download']                = 'Operator/ReportPelatihanController/download';
+
+$route['operator/report-pegawai']                           = 'Operator/ReportPegawaiController';
+$route['operator/report-pegawai/filter']                    = 'Operator/ReportPegawaiController/filter';
+$route['operator/report-pegawai/download']                  = 'Operator/ReportPegawaiController/download';
+
+$route['operator/report-pegawai-penghargaan']               = 'Operator/ReportPenghargaanPegawaiController';
+$route['operator/report-pegawai-penghargaan/filter']        = 'Operator/ReportPenghargaanPegawaiController/filter';
+$route['operator/report-pegawai-penghargaan/download']      = 'Operator/ReportPenghargaanPegawaiController/download';
+
+$route['operator/report-pelatihan-pegawai']                 = 'Operator/ReportPelatihanPegawaiController';
+$route['operator/report-pelatihan-pegawai/filter']          = 'Operator/ReportPelatihanPegawaiController/filter';
+$route['operator/report-pelatihan-pegawai/download']        = 'Operator/ReportPelatihanPegawaiController/download';
+
 // ------------------------------------------------------------------------
 // Profile
 // ------------------------------------------------------------------------
